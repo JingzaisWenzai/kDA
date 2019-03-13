@@ -56,6 +56,7 @@ html {
   -webkit-box-shadow: 0 0 0 5px hsla(26,20%,66%,.05) inset!important;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(.44,#7a99d9),color-stop(.72,#497dbd),color-stop(.86,#1c3a94)) !important;
 }
+
 /* ie 滚动条*/
 html{
   scrollbar-arrow-color: #1c3a94; /**//*三角箭头的颜色*/
