@@ -1,0 +1,1670 @@
+[
+  {
+    "name": "园岭街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0969561843,
+            22.5653358397
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "上林",
+          "LON": 114.09695618434581,
+          "LAT": 22.56533583969474
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0913549179,
+            22.5645986269
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "华林",
+          "LON": 114.09135491789867,
+          "LAT": 22.564598626865912
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0862616875,
+            22.5620281504
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "南天",
+          "LON": 114.08626168745558,
+          "LAT": 22.56202815042376
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0972235512,
+            22.5554193616
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "园东",
+          "LON": 114.09722355119422,
+          "LAT": 22.55541936161614
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0931431863,
+            22.5548800026
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "红荔",
+          "LON": 114.09314318628851,
+          "LAT": 22.554880002609565
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0844421697,
+            22.5549956035
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "长城",
+          "LON": 114.08444216968876,
+          "LAT": 22.554995603495314
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.094781912,
+            22.560005879
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "园岭",
+          "SQNAME": "鹏盛",
+          "LON": 114.09478191200756,
+          "LAT": 22.56000587902096
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_yuanling",
+    "coordinates" : [ 114.0913130206, 22.5593245431 ]
+  },
+  {
+    "name": "沙头街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.026881245,
+            22.5264139492
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "上沙",
+          "LON": 114.02688124502488,
+          "LAT": 22.52641394921892
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0217308995,
+            22.5286479934
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "下沙",
+          "LON": 114.0217308994595,
+          "LAT": 22.528647993430454
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0217924955,
+            22.535260757
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "天安",
+          "LON": 114.0217924954513,
+          "LAT": 22.535260757045595
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0368464237,
+            22.5276168013
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "新华",
+          "LON": 114.03684642368634,
+          "LAT": 22.527616801316835
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.036564627,
+            22.5361851819
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "新沙",
+          "LON": 114.03656462697421,
+          "LAT": 22.536185181927692
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.043139351,
+            22.5272204677
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "新洲",
+          "LON": 114.0431393510294,
+          "LAT": 22.52722046773914
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0321728753,
+            22.5152364501
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "沙咀",
+          "LON": 114.03217287527482,
+          "LAT": 22.51523645011514
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0369004581,
+            22.5215617513
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "沙尾",
+          "LON": 114.03690045809743,
+          "LAT": 22.521561751318263
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0385512439,
+            22.5190767309
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "翠湾",
+          "LON": 114.0385512438759,
+          "LAT": 22.519076730864597
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0311634565,
+            22.5258570934
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "金地",
+          "LON": 114.03116345651932,
+          "LAT": 22.525857093387234
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0019381945,
+            22.5317828179
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "金城",
+          "LON": 114.00193819453463,
+          "LAT": 22.53178281786568
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0199504461,
+            22.5245280983
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "沙头",
+          "SQNAME": "金碧",
+          "LON": 114.01995044609755,
+          "LAT": 22.52452809833874
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_shatou",
+    "coordinates" : [ 114.0227330042, 22.5284305247 ]
+  },
+  {
+    "name": "梅林街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0357176474,
+            22.5646757676
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "下梅",
+          "LON": 114.03571764739482,
+          "LAT": 22.564675767637862
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.053441185,
+            22.5799767342
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "孖岭",
+          "LON": 114.05344118499767,
+          "LAT": 22.579976734223308
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0622287542,
+            22.5807567179
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "新阁",
+          "LON": 114.06222875419002,
+          "LAT": 22.58075671787351
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0427348487,
+            22.5657847832
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅丰",
+          "LON": 114.04273484867025,
+          "LAT": 22.56578478316438
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0118668833,
+            22.5671403223
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅京",
+          "LON": 114.01186688331902,
+          "LAT": 22.567140322322636
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0575774089,
+            22.568621399
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅亭",
+          "LON": 114.057577408864,
+          "LAT": 22.56862139903216
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0247527912,
+            22.577789505
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅林一村",
+          "LON": 114.02475279120853,
+          "LAT": 22.577789505037785
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0384515308,
+            22.5675037602
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅河",
+          "LON": 114.0384515308278,
+          "LAT": 22.56750376024627
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0496803541,
+            22.5741320091
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "梅都",
+          "LON": 114.04968035411163,
+          "LAT": 22.57413200913418
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0640310989,
+            22.5731435431
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "翰岭",
+          "LON": 114.06403109889813,
+          "LAT": 22.57314354306254
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0389963294,
+            22.578798109
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "龙尾",
+          "LON": 114.03899632940579,
+          "LAT": 22.578798108992984
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0514317868,
+            22.5691899881
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "上梅",
+          "LON": 114.05143178681554,
+          "LAT": 22.56918998806685
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0448358082,
+            22.5691471555
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "梅林",
+          "SQNAME": "新兴",
+          "LON": 114.04483580815841,
+          "LAT": 22.569147155542133
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_meilin",
+    "coordinates" : [ 114.0327577146, 22.5734942353 ]
+  },
+  {
+    "name": "南园街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0985424839,
+            22.5418701191
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "东园",
+          "LON": 114.09854248390056,
+          "LAT": 22.541870119052852
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0852832995,
+            22.5353257124
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "南华",
+          "LON": 114.08528329950167,
+          "LAT": 22.535325712382672
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0908891221,
+            22.5423709368
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "南园",
+          "LON": 114.0908891221493,
+          "LAT": 22.542370936793912
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0829479217,
+            22.5419525361
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "园西",
+          "LON": 114.08294792171999,
+          "LAT": 22.541952536094964
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0941426082,
+            22.5408215952
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "巴登",
+          "LON": 114.0941426082143,
+          "LAT": 22.540821595160708
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0879992034,
+            22.5393254519
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "沙埔头",
+          "LON": 114.0879992033589,
+          "LAT": 22.539325451897152
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0960762051,
+            22.537606961
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "滨江",
+          "LON": 114.09607620510057,
+          "LAT": 22.537606961049967
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0787128058,
+            22.5312898228
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "滨河",
+          "LON": 114.0787128057948,
+          "LAT": 22.531289822789667
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0903653655,
+            22.5396974564
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "玉田",
+          "LON": 114.09036536553533,
+          "LAT": 22.53969745639949
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0804237456,
+            22.5346858506
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "赤尾",
+          "LON": 114.08042374557434,
+          "LAT": 22.534685850574732
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0841431862,
+            22.5391481173
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "南园",
+          "SQNAME": "锦龙",
+          "LON": 114.08414318621257,
+          "LAT": 22.539148117269313
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_nanyuan",
+    "coordinates" : [ 114.0886176432, 22.5378858513 ]
+  },
+  {
+    "name": "香蜜湖街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0178755906,
+            22.5413685333
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "东海",
+          "LON": 114.01787559057652,
+          "LAT": 22.541368533265775
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0142813933,
+            22.5492180442
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "农园",
+          "LON": 114.01428139325695,
+          "LAT": 22.54921804419405
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0077235564,
+            22.5440220818
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "竹园",
+          "LON": 114.00772355640504,
+          "LAT": 22.54402208179432
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0057655651,
+            22.5396899303
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "竹林",
+          "LON": 114.00576556508393,
+          "LAT": 22.539689930263968
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0017463647,
+            22.5521037049
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "香安",
+          "LON": 114.00174636470709,
+          "LAT": 22.55210370491822
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            113.9972046163,
+            22.5401765441
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "香岭",
+          "LON": 113.99720461630493,
+          "LAT": 22.540176544115457
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0212616943,
+            22.5578756778
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "香梅",
+          "LON": 114.02126169432853,
+          "LAT": 22.557875677768514
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0269469806,
+            22.5484774606
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "香蜜湖",
+          "SQNAME": "香蜜",
+          "LON": 114.02694698063499,
+          "LAT": 22.548477460629258
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_xiangmihu",
+    "coordinates" : [ 114.0124662559, 22.5476531279 ]
+  },
+  {
+    "name": "华富街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.072769583,
+            22.5614102637
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "华山",
+          "LON": 114.07276958299484,
+          "LAT": 22.561410263708257
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0654248906,
+            22.5452297147
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "新田",
+          "LON": 114.06542489056582,
+          "LAT": 22.545229714743343
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0782855005,
+            22.5665874233
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "梅岗",
+          "LON": 114.07828550048484,
+          "LAT": 22.566587423290922
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0720490048,
+            22.5470829985
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "田面",
+          "LON": 114.07204900478233,
+          "LAT": 22.54708299849617
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.065107824,
+            22.5616524182
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "莲花一村",
+          "LON": 114.06510782396037,
+          "LAT": 22.561652418215836
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0652759307,
+            22.5493936901
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "莲花三村",
+          "LON": 114.06527593068373,
+          "LAT": 22.549393690071636
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0653182216,
+            22.5529110258
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "莲花二村",
+          "LON": 114.06531822155068,
+          "LAT": 22.552911025789577
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0732897891,
+            22.5549735181
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华富",
+          "SQNAME": "黄木岗",
+          "LON": 114.07328978913587,
+          "LAT": 22.55497351808163
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_huafu",
+    "coordinates" : [ 114.0724185795, 22.558593879 ]
+  },
+  {
+    "name": "华强北街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0796527689,
+            22.5538271624
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华强北",
+          "SQNAME": "华红",
+          "LON": 114.07965276888923,
+          "LAT": 22.55382716236343
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0788415698,
+            22.5473374852
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华强北",
+          "SQNAME": "华航",
+          "LON": 114.07884156981069,
+          "LAT": 22.547337485160448
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0864109078,
+            22.5452212254
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华强北",
+          "SQNAME": "福强",
+          "LON": 114.08641090782055,
+          "LAT": 22.54522122535275
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0847212412,
+            22.5494006411
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华强北",
+          "SQNAME": "荔村",
+          "LON": 114.08472124116417,
+          "LAT": 22.549400641127335
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0953241436,
+            22.5476295152
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "华强北",
+          "SQNAME": "通新岭",
+          "LON": 114.09532414355425,
+          "LAT": 22.547629515238782
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_huaqiangbei",
+    "coordinates" : [ 114.0870799212, 22.5480387549 ]
+  },
+  {
+    "name": "福田街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0713916096,
+            22.5253336039
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "口岸",
+          "LON": 114.07139160957023,
+          "LAT": 22.52533360389486
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0733934434,
+            22.5334548354
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "圩镇",
+          "LON": 114.07339344336215,
+          "LAT": 22.533454835354544
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0630495878,
+            22.5402245138
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "岗厦",
+          "LON": 114.06304958780662,
+          "LAT": 22.540224513800464
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0584044571,
+            22.5225986311
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "水围",
+          "LON": 114.05840445707675,
+          "LAT": 22.522598631081266
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0611697931,
+            22.5273725318
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "海滨",
+          "LON": 114.06116979312486,
+          "LAT": 22.527372531765145
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0663210376,
+            22.519136207
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "渔农",
+          "LON": 114.06632103763661,
+          "LAT": 22.519136206995856
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0545573638,
+            22.5254547131
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "皇岗",
+          "LON": 114.05455736382272,
+          "LAT": 22.52545471308096
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0798650714,
+            22.5396926356
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福华",
+          "LON": 114.07986507135729,
+          "LAT": 22.53969263560857
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0750769548,
+            22.5413843709
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福南",
+          "LON": 114.07507695481223,
+          "LAT": 22.541384370861994
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0512259525,
+            22.5370151782
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福安",
+          "LON": 114.05122595245291,
+          "LAT": 22.537015178223495
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0656917253,
+            22.5349115938
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福山",
+          "LON": 114.06569172526481,
+          "LAT": 22.534911593783175
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0649517735,
+            22.5270414307
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福民",
+          "LON": 114.06495177350416,
+          "LAT": 22.52704143072957
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0759602991,
+            22.5356955023
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福田",
+          "SQNAME": "福田",
+          "LON": 114.07596029905916,
+          "LAT": 22.53569550228201
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_futian",
+    "coordinates" : [ 114.0630316124, 22.5319424242 ]
+  },
+  {
+    "name": "莲花街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0317565553,
+            22.5583108211
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "康欣",
+          "LON": 114.03175655533167,
+          "LAT": 22.558310821106907
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0542970111,
+            22.5637768818
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "彩田",
+          "LON": 114.05429701107776,
+          "LAT": 22.56377688178745
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0607440925,
+            22.5637030982
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "彩虹",
+          "LON": 114.06074409247972,
+          "LAT": 22.563703098246798
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0418795861,
+            22.5535174309
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "景华",
+          "LON": 114.0418795860838,
+          "LAT": 22.55351743088367
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0400295702,
+            22.5601682047
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "景田",
+          "LON": 114.04002957021557,
+          "LAT": 22.560168204666635
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0354272955,
+            22.561636446
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "梅富",
+          "LON": 114.03542729546685,
+          "LAT": 22.56163644600962
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0374964322,
+            22.5454862542
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "梅岭",
+          "LON": 114.03749643223907,
+          "LAT": 22.545486254177924
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0368101731,
+            22.5521490458
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "狮岭",
+          "LON": 114.03681017314806,
+          "LAT": 22.552149045756483
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0569590694,
+            22.5470062746
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "福中",
+          "LON": 114.05695906939916,
+          "LAT": 22.547006274593333
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0532295375,
+            22.5568812907
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "福新",
+          "LON": 114.05322953752948,
+          "LAT": 22.55688129068452
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0421169011,
+            22.5462104445
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "紫荆",
+          "LON": 114.0421169010859,
+          "LAT": 22.546210444491642
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0451127778,
+            22.5617653884
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "莲花",
+          "SQNAME": "莲花北",
+          "LON": 114.045112777841,
+          "LAT": 22.56176538836139
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_lianhua",
+    "coordinates" : [ 114.0476315583, 22.5540713025 ]
+  },
+  {
+    "name": "福保街道",
+    "data": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0460415743,
+            22.5203948682
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福保",
+          "SQNAME": "新港",
+          "LON": 114.04604157433647,
+          "LAT": 22.520394868165948
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0481364929,
+            22.5285814753
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福保",
+          "SQNAME": "明月",
+          "LON": 114.04813649289906,
+          "LAT": 22.528581475293535
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0458709375,
+            22.516110889
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福保",
+          "SQNAME": "益田",
+          "LON": 114.04587093747936,
+          "LAT": 22.516110889002306
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0460020736,
+            22.5236773958
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福保",
+          "SQNAME": "石厦",
+          "LON": 114.0460020735717,
+          "LAT": 22.523677395766317
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            114.0493608533,
+            22.5078900142
+          ]
+        },
+        "properties": {
+          "QUNAME": "福田区",
+          "JDNAME": "福保",
+          "SQNAME": "福保",
+          "LON": 114.04936085328698,
+          "LAT": 22.507890014245724
+        }
+      }
+    ],
+    "id":"layer_arcgis_basemap_fubao",
+    "coordinates" : [ 114.0485845715, 22.5144572043 ]
+  }
+]

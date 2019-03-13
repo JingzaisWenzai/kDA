@@ -1,0 +1,41 @@
+{
+  "total": 21401,
+  "data": {
+    "redyh": [
+    {
+      "time": "11月",
+      "total": 71
+    }, {
+      "time": "10月",
+      "total": 68
+    }, {
+      "time": "09月",
+      "total": 809
+    }
+    ],
+    "yellowyh": [
+     {
+      "time": "11月",
+      "total": 2
+    }, {
+      "time": "10月",
+      "total": 1
+    }, {
+      "time": "09月",
+      "total": 35
+    }
+    ],
+    "orayh": [
+    {
+      "time": "11月",
+      "total": 0
+    }, {
+      "time": "10月",
+      "total": 2
+    }, {
+      "time": "09月",
+      "total": 22
+    }
+    ]
+  }
+}

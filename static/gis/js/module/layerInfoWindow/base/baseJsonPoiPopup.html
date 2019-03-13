@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!--<script src="js/common.js"></script>-->
+    <style>
+        /* --------自定义图层弹框--------*/
+        .popup_content {
+            /*width: 200px;*/
+            min-height: 100px;
+            max-height: 220px;
+            line-height: 28px;
+            text-align: left;
+            margin: 0 5px;
+            overflow: auto;
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .popup_content p {
+            font-size: 14px !important;
+            line-height: 25px !important;
+            text-align: left;
+            margin: 0px !important;
+            overflow: hidden;
+        }
+
+        .k_c {
+            width: 200px;
+            height: 60px;
+            font-size: 14px !important;
+            line-height: 80px !important;
+            text-align: left !important;
+            margin-bottom: 0px !important;
+            overflow: hidden;
+        }
+
+        .k_c_left {
+            width: 75px;
+            height: 80px;
+            line-height: 80px;
+            text-align: left;
+            margin: 0px 20px 0px 0px;
+            float: left;
+            display: inline;
+            overflow: hidden;
+        }
+
+        .k_c_left span:nth-child(1), .k_c_right span:nth-child(1) {
+            width: 35px;
+            height: 35px;
+            margin-right: 5px;
+        }
+
+        .k_c_left span:nth-child(1) img, .k_c_right span:nth-child(1) img {
+            width: 35px;
+            height: 35px;
+            vertical-align: -10px;
+        }
+
+        .k_c_right {
+            width: 105px;
+            height: 80px;
+            line-height: 80px;
+            text-align: left;
+            margin: 0px auto;
+            float: left;
+            display: inline;
+            overflow: hidden;
+        }
+
+        .k_c a {
+            font-size: 14px;
+            color: #666666;
+            text-decoration: none !important;
+            display: block;
+        }
+
+        .k_c a:hover, .k_c a:active, .k_c a:focus {
+            font-size: 14px;
+            color: #0077ed;
+            text-decoration: none;
+            display: block;
+        }
+
+        .popup_foot_tool a {
+            color: #666666;
+            text-decoration: none !important;;
+        }
+
+
+    </style>
+
+    <script>
+        /** ---------------------弹框初始化---------------------*/
+        var parentWindow = window.parent;
+        var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+
+        parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+        /** ---------------------弹框按钮---------------------*/
+        //按钮-关闭
+        function closePopup() {
+            parentWindow.mapView.popup.close();
+        }
+
+        //按钮-查看详情
+        function openDetailMsg() {
+            parentWindow.parent.monographicLayer.loadSFDetailMessage(params.nodeId, params.featureId)
+        }
+
+        //按钮-周边查询
+        function queryNearby() {
+            parentWindow.module.layerControl.common.loadUtil.drawCirleQuery(params.longitude, params.latitude);
+        }
+
+        /** ---------------------弹框工具---------------------*/
+        //工具--缩放至
+        function zooTo() {
+            parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+        }
+
+        //工具--清除周边
+        function clearNearby() {
+            parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+        }
+
+        /** ---------------------弹框数据填充---------------------*/
+        parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function (data) {
+            if (data) {
+                //遍历字段
+                var htmlItem = "";
+                for (var i = 0; i < data.value.length; i++) {
+                    var item = data.value[i];
+                    htmlItem += "<p>" + item[0] + "：" + item[1] + "</p>";
+                }
+
+                //是否有详细按钮
+                if (data.hasDetailInfo) {
+                    document.getElementById('popup_tilte').style.cssText = "display:block";
+                }
+
+                //html填充
+                var node = parentWindow.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId);
+
+                document.getElementById('popup_tilte').innerHTML = node.label;
+                document.getElementById('popup_content').innerHTML = htmlItem;
+            }
+        });
+
+    </script>
+</head>
+<body>
+<div style="width:auto;height: 290px;margin-left:8px;margin-right: 8px;margin-top: 5px; ">
+
+    <!-- adf
+     <a href="javascript:void(0);" onclick="this.closePopup()" title="关闭">关闭</a>
+     <a href="javascript:void(0);" onclick="this.zooTo()" title="缩放至">缩放至</a>-->
+
+    <div style="height: 30px;">
+        <h1 id="popup_tilte"
+            style="float: left;font-size: 16px;font-family:'Microsoft YaHei';font-weight: 300;color:dodgerblue;"></h1>
+        <div style="float: right;cursor: pointer;" aria-label="关闭" title="关闭">
+            <a href="javascript:void(0);" onclick="closePopup()"><img
+                    src="../../../../img/layerControl/popup/close.png"></a>
+        </div>
+    </div>
+
+
+    <div id="popup_content" class="popup_content">
+
+    </div>
+    <div class="k_c">
+        <div id="popup_button_detial" class="k_c_left" style="display: none;"><a href="####" title="详情"
+                                                                                 onclick="openDetailMsg()"><span><img
+                src="../../../../img/layerControl/popup/detail.png"></span><span
+                style="margin-top: 10px">详情</span></a></div>
+        <div class="k_c_right"><a href="####" title="附近资源"
+                                  onclick="queryNearby()">
+            <span><img src="../../../../img/layerControl/popup/search.png"></span> <span>附近资源</span>
+        </a></div>
+    </div>
+
+    <div class="popup_foot_tool" style="text-align: left;height: 30px;margin-top: 15px;">
+        <div title="缩放至" aria-label="缩放至" style="float:left ;width: 80px;height:100%;vertical-align: middle">
+            <a href="javascript:void(0);" onclick="zooTo()"> <img src="../../../../img/layerControl/popup/zoom.png"
+                                                                  style="vertical-align: middle"><span>缩放至</span></a>
+
+        </div>
+        <div title="清除" aria-label="清除" style=" float: left;width: 80px;height:100%;vertical-align: middle">
+            <a href="javascript:void(0);" onclick="clearNearby()"> <img
+                    src="../../../../img/layerControl/popup/clear.png"
+                    style="width: 20px;height: 20px;vertical-align: middle"><span>清除</span> </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

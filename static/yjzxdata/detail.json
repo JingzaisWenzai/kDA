@@ -1,0 +1,26 @@
+{
+  "detail": {
+    "earlyWarningType": "气象预警",
+    "earlyWarningName": "暴雨",
+    "earlyWarningGrade": "黄色",
+    "belongToRegion": "福田区",
+    "publishTime": "2018/8/31 9:11:12",
+    "publishPeople": "深圳气象局",
+    "cancleTime": "-",
+    "warningDetail": "【深圳市发布暴雨黄色预警】市气象台于08月31日 9时11分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等",
+    "sentStatus": "-",
+    "allocationStatus": "-",
+    "handleStatus": "处置中",
+    "comming": "深圳气象局",
+    "num": "-",
+    "updateTime": "2018/8/31 9:11:12",
+    "handleProcess": [
+      {
+        "time": "2018/8/31 9:11:12",
+        "publishComing": "深圳气象局已发布",
+        "tpte": "气象预警",
+        "platform": "预警监测平台"
+      }
+    ]
+  }
+}

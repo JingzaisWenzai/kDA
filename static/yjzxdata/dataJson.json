@@ -1,0 +1,58 @@
+{
+  "warningType":
+  {
+    "city":{"城市供水预警":3, "城市供电预警":2, "城市燃气供应预警":3},
+    "meteorological":{"高温预警":6, "台风预警":2, "雷电预警":3, "暴雨预警":0, "大风预警":3},
+    "geologic":{"边坡":3, "道路病害":2, "地质灾害监测设备":3},
+    "threeDefense":{"水库预警":3, "河道预警":2, "积涝点预警":3},
+    "fire":{"消防压力传感器":3, "电气火灾监测设备":2, "气体传感器":3, "烟雾传感器":0, "剩余电流传感器":3},
+    "safety":{"逾期未整改企业":3},
+    "publicOpinion":{"舆情":3},
+    "earlyWarning":{"特殊病种":3},
+    "ecological":{"空气质量预警":3, "水环境预警":2, "固废预警":3, "噪声预警":0},
+    "keyEnterprises":{"企业外迁":3, "劳资纠纷":2}
+
+},
+  "processStatus":
+  {
+    "city":{"remainProcess":3, "processing":2, "postProcess":3},
+    "meteorological":{"remainProcess":3, "processing":2, "postProcess":3},
+    "geologic":{"remainProcess":3, "processing":2, "postProcess":3},
+    "threeDefense":{"remainProcess":3, "processing":2, "postProcess":3},
+    "fire":{"remainProcess":3, "processing":2, "postProcess":3},
+    "safety":{"remainProcess":3, "processing":2, "postProcess":3},
+    "publicOpinion":{"remainProcess":3, "processing":2, "postProcess":3},
+    "earlyWarning":{"remainProcess":3, "processing":2, "postProcess":3},
+    "ecological":{"remainProcess":3, "processing":2, "postProcess":3},
+    "keyEnterprises":{"remainProcess":3, "processing":2, "postProcess":3}
+  },
+  "warningColor":
+  {
+    "city":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "meteorological":{"red":3, "yellow":2, "orange":6, "blue":3},
+    "geologic":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "threeDefense":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "fire":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "safety":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "publicOpinion":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "earlyWarning":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "ecological":{"red":3, "yellow":2, "orange":3, "blue":3},
+    "keyEnterprises":{"red":3, "yellow":2, "orange":3, "blue":3}
+  },
+
+  "warning":12,
+  "remain":5,
+  "overtime":5,
+  "list":[
+    {"id":"qw","type":"气象预警","time":"2018/8/31 9:11","status":"生效中","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月31日 9时11分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"处置中"},
+    {"id":"wewe","type":"气象预警","time":"2018/8/31 9:10","status":"已失效","area":"深圳全市陆地、福田区","content":"【深圳市发布雷电预警】市气象台于08月31日 9时10分在全市发布雷电预警。市民需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"qwrqwr","type":"气象预警","time":"2018/8/30 9:19","status":"已失效","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月30日 9时19分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"qrw","type":"气象预警","time":"2018/8/30 9:10","status":"已失效","area":"福田区","content":"【深圳市发布暴雨橙色预警】市气象台于08月30日 9时19分在全市发布暴雨橙色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"wer","type":"气象预警","time":"2018/8/29 9:12","status":"已失效","area":"深圳全市陆地、福田区","content":"【深圳市发布雷电预警】市气象台于08月29日 9时12分在全市发布雷电预警。市民需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"werw","type":"气象预警","time":"2018/8/29 9:12","status":"已失效","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月29日 9时12分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"sdf","type":"气象预警","time":"2018/8/28 8:28","status":"已失效","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月28日 8时28分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"wew3","type":"气象预警","time":"2018/8/28 8:20","status":"已失效","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月28日 8时20分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"},
+    {"id":"ere","type":"气象预警","time":"2018/8/27 17:10","status":"已失效","area":"福田区","content":"【深圳市发布暴雨黄色预警】市气象台于08月27日 17时10分在全市发布暴雨黄色预警。今天白天仍有阵雨，市民仍需注意远离河道和危险边坡等","publish":"深圳气象局","processingState":"已处置"}
+  ]
+
+}

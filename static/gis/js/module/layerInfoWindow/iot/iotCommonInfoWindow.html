@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .aqyh_s {
+            width: 330px;
+            height: auto;
+            text-align: left;
+            margin: 0px auto;
+        }
+
+        /* padding: 15px; overflow: hidden;  background-color: #f9f9f9; box-shadow:0 0 5px #e6e6e6; border:1px solid #d0d0d0; border-radius: 5px;*/
+        .aqyh_s_a {
+            width: 330px;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            margin: 0px auto;
+            overflow: hidden;
+        }
+
+        .aqyh_s_a_left {
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            margin: 0px auto;
+            float: left;
+            display: inline;
+            overflow: hidden;
+            font-size: 24px;
+            color: #666666;
+        }
+
+        .aqyh_s_a_left span:nth-child(2) {
+            padding: 3px 10px;
+            margin-left: 20px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #df0000;
+            border-radius: 5px;
+        }
+
+        .aqyh_s_a_right {
+            width: auto;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            margin: 0px auto;
+            float: right;
+            display: inline;
+            overflow: hidden;
+        }
+
+        .aqyh_s_a_right img {
+            width: 24px;
+            height: 24px;
+            margin: 3px auto;
+        }
+
+        .aqyh_s_b {
+            width: 330px;
+            height: auto;
+            line-height: 30px;
+            text-align: left;
+            margin-bottom: 10px;
+            padding: 10px 0px;
+            overflow: hidden;
+            border-top: #e6e6e6 solid 1px;
+            border-bottom: #e6e6e6 solid 1px;
+        }
+
+        .aqyh_s_b ul {
+            width: 330px;
+            height: auto;
+            line-height: 30px;
+            text-align: left;
+            margin: 0px auto;
+            overflow: hidden;
+        }
+
+        .aqyh_s_b ul li {
+            width: 330px;
+            height: auto;
+            line-height: 30px;
+            text-align: left;
+            margin: 0px auto;
+            float: left;
+            display: inline;
+            overflow: hidden;
+        }
+
+        /*.aqyh_s_b ul li:nth-last-child(1) {
+            border-top: #e6e6e6 solid 1px;
+        }
+
+        .aqyh_s_b ul li:nth-last-child(1) span:nth-child(2) {
+            font-size: 15px;
+            color: #e70000;
+            margin-left: 30px;
+        }*/
+
+        .aqyh_s_b_left {
+            width: 120px;
+            height: auto;
+            line-height: 25px;
+            text-align: left;
+            margin: 0px 10px 0px 0px;
+            float: left;
+            display: inline;
+            overflow: hidden;
+            font-size: 15px;
+            color: #666666;
+        }
+
+        .aqyh_s_b_right {
+            width: 200px;
+            height: auto;
+            line-height: 25px;
+            text-align: left;
+            margin: 0px auto;
+            float: left;
+            display: inline;
+            overflow: hidden;
+            font-size: 15px;
+            color: #196db4;
+        }
+
+        .aqyh_s_c {
+            width: 102px;
+            height: 32px;
+            line-height: 32px;
+            text-align: left;
+            margin: 0px auto;
+            overflow: hidden;
+            float: right;
+        }
+
+        .aqyh_s_c a {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            color: #666666;
+            border: #e6e6e6 solid 1px;
+            border-radius: 5px;
+        }
+
+        .aqyh_s_c a:hover, .aqyh_s_c a:active, .aqyh_s_c a:focus {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            color: #ffffff;
+            background-color: #196db4;
+            border: #196db4 solid 1px;
+            border-radius: 5px;
+        }
+
+    </style>
+    <script>
+        /** ---------------------弹框初始化---------------------*/
+        var parentWindow = window.parent;
+        var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+
+        parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+        /** ---------------------弹框按钮---------------------*/
+        //按钮-关闭
+        function closePopup() {
+            parentWindow.mapView.popup.close();
+        }
+
+        //按钮-查看详情
+        function openDetailMsg() {
+            parentWindow.parent.monographicLayer.loadSFDetailMessage(params.nodeId, params.featureId)
+        }
+
+        //按钮-周边查询
+        function queryNearby() {
+            parentWindow.module.layerControl.common.loadUtil.drawCirleQuery(params.longitude, params.latitude);
+        }
+
+        /** ---------------------弹框工具---------------------*/
+        //工具--缩放至
+        function zooTo() {
+            parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+        }
+
+        //工具--清除周边
+        function clearNearby() {
+            parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+        }
+
+
+        //数据加载
+        window.onload = function () {
+            //var params = getUrlParam();
+            var htmlItem = ""
+
+            var node = parent.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId);
+            var getPopupDataUrl = node.url + "/summaryInfo";
+            var options = {
+                query: {
+                    id: params.featureId,
+                    type: parent.MapConfig.backgroundService.webType
+                },
+                responseType: 'json'
+            };
+
+
+            $.ajax({
+                url: getPopupDataUrl,
+                type: 'GET',
+                data: options.query,
+                dataType: "json", //指定服务器返回的数据类型
+                async: false,
+                success: function (data) {
+                    //遍历字段
+                    for (var i = 0; i < data.value.length; i++) {
+                        var item = data.value[i];
+                        htmlItem += ""
+                            + "<li>"
+                            + "<div class='aqyh_s_b_left'>"
+                            + item[0] + "："
+                            + "</div>"
+                            + " <div class='aqyh_s_b_right'>"
+                            + item[1]
+                            + "</div>"
+                            + "</li>";
+
+                    }
+
+                    //是否有详细按钮
+                    if (data.hasDetailInfo) {
+
+                    }
+
+                    //html填充
+                    document.getElementById('ulDataList').innerHTML = htmlItem;
+
+                },
+                error: function (error) {
+                    console.log(params.nodeId + "图层弹框加载错误，", error.message);
+                }
+            });
+        }
+
+    </script>
+
+    <link rel="stylesheet" href="../base/css/reset.css">
+    <script src="../base/js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body style="width: 330px;height: 320px;">
+
+<div class="aqyh_s">
+    <!-- <div class="aqyh_s_a">
+         <div class="aqyh_s_a_left">
+             <span> 内涝监测设备</span>
+             <span> 报警</span>
+         </div>
+         <div class="aqyh_s_a_right">
+             <a href="####" title="关闭"><img src="img/close.png"></a>
+         </div>
+     </div>-->
+    <div class="aqyh_s_b" style="height:250px;overflow-y: auto;padding-right: 10px">
+        <ul id="ulDataList">
+            <!--<li>
+                <div class="aqyh_s_b_left">
+                    地址：
+                </div>
+                <div class="aqyh_s_b_right">
+                    福田区梅林街道北环新洲立交（含梅秀路口）
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    类型：
+                </div>
+                <div class="aqyh_s_b_right">
+                    易淹点
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    街道负责人：
+                </div>
+                <div class="aqyh_s_b_right">
+                    找小美
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    联系电话：
+                </div>
+                <div class="aqyh_s_b_right">
+                    13333333333
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    水务集团负责人：
+                </div>
+                <div class="aqyh_s_b_right">
+                    江国平
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    联系电话：
+                </div>
+                <div class="aqyh_s_b_right">
+                    13588798468
+                </div>
+            </li>
+            <li>
+                <div class="aqyh_s_b_left">
+                    水位：
+                </div>
+                <div class="aqyh_s_b_right">
+                    <span>1cm</span>
+                    <span>水位报警</span>
+                </div>
+            </li>-->
+            <!--   <li>
+                   <div class="aqyh_s_b_left">
+                      类型：
+                   </div>
+                   <div class="aqyh_s_b_right">
+                       <span style='color: red'>易淹点</span>
+                   </div>
+               </li>-->
+        </ul>
+    </div>
+    <div class="aqyh_s_c">
+        <a href="javascript:void(0);" onclick="openDetialInfowindow()" title="详细信息">详细信息</a>
+    </div>
+</div>
+
+</body>
+</html>

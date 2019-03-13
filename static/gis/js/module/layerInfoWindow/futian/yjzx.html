@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../base/css/reset.css">
+  <style>
+    .content{margin: 5px;padding-top: 5px;text-align: left;/*border-top: 1px solid #196db4;*/}
+    /*.content ul{height: 322px;!*overflow-y: auto;padding-right: 3px;margin-right: -12px;*!}*/
+    .content ul li{list-style: none;display: block;padding: 2px 5px;margin: 0;}
+    .content ul li .name{width: 65px;display: inline-block;text-align: center; color: #196db4;font-size: 14px;font-weight: bold;position: absolute;}
+    .content ul li .msg{display: inline-block;text-align: left; color: #196db4;font-size: 14px;font-weight: bold;position: relative;left: 65px;max-height: 120px;overflow-y: auto;width: 200px;}
+    .content .title{
+      text-align: center;
+      display: inline-block;
+      width: 90%;
+      /*margin: 5px 0;*/
+      color: #196db4;
+      font-size: 16px;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .content img{cursor: pointer;margin-left: 4px;/*width: 20px;margin-top: 5px;*/}
+    .base-footer{width: 95%;height:50px; margin:0 auto; position: relative;border-top: 1px solid #196db4;}
+    .base-footer .base-underline{ font-size:10px;margin:10px 30px 0 0;  width:auto;height:30px;line-height: 30px;display: block;float:left; padding:0 8px;background-color: #196db4;border-radius: 5px;color: #fff;}
+    .base-footer a span{display: block;width: 60px;/*width: 100%;*/background-color: transparent;}
+    .base-footer a.base-btn{font-size: 12px;display:none;padding:0 8px;height:30px;line-height: 30px; position: absolute; left:100%; top:50%;margin-left:-60px;margin-top:-15px;background-color: #196db4;border-radius: 5px;color: #fff;}
+
+  </style>
+  <script src="../../../../../js/OneMap/detailAlert.js"></script>
+  <script src="./js/jquery-1.11.1.min.js" type="text/javascript" language="javascript"></script>
+  <script src="../../../../../js/baseUrl_1.js" type="text/javascript"></script>
+  <script>
+    /** ---------------------弹框初始化---------------------*/
+
+    var parentWindow = window.parent;
+    var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+
+    parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+    /** ---------------------弹框按钮---------------------*/
+    //按钮-关闭
+    function closePopup() {
+      parentWindow.mapView.popup.close();
+    }
+
+    //按钮-查看详情
+    function openDetailMsg() {
+      detailAlert.loadSFDetailMessage(params.nodeId, params.featureId);
+    }
+
+    //按钮-周边查询
+    function queryNearby() {
+      console.log(params)
+      detailAlert.sendCircleSearchInfo(params.nodeId,params.featureId,params.latitude,params.longitude);
+    }
+
+    /** ---------------------弹框工具---------------------*/
+    //工具--缩放至
+    function zooTo() {
+      parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+    }
+
+    //工具--清除周边
+    function clearNearby() {
+      parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+    }
+
+    /** ---------------------弹框数据填充---------------------*/
+    /* parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function (data) {
+     console.log(data);
+     })*/
+    //数据加载---样例代码
+    window.onload = function () {
+
+      console.log(params);
+      var node = parent.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId);
+
+      var getPopupDataUrl = baseUrl+ '/hiddendanger/ALARM_INFORMATION/summaryInfo';
+      var options = {
+        query: {
+          id: params.featureId
+        }
+      };
+      $.ajax({
+        headers:{
+          token:parentWindow.module.common.layerControl.mapNet.getCookieByName("Admin-Token")
+        },
+        url: getPopupDataUrl,
+        type: 'GET',
+        data: options.query,
+        dataType: "json", //指定服务器返回的数据类型
+        async: false,
+        success: function (data) {
+
+          if(data.hasDetailInfo === true){
+            $('base-btn').show()
+          }
+
+          console.log(data);
+          var html = ''
+          for(var i = 0,j = data.value.length;i<j;i+=1){
+            html += '<li><span class="name">'+data.value[i][0]+'</span><span class="msg">：'+data.value[i][1]+'</span></li>'
+          }
+          $('.content ul').html(html)
+          $('.content .title').html(data.title)
+
+          var tempArray = []
+          for(var i = 0,j = $('.content .name').length;i<j;i+=1){
+            tempArray.push((Number($('.content .name').eq(i).css('width').split('px')[0])))
+          }
+          $('.content .name').css('width',quickSort(tempArray).reverse()[0]+1+'px')
+          $('.content .msg').css('left',(Number($('.content .name').css('width').split('px')[0])+5)+'px')
+          var widthTemp = 15+(Number($('.content .name').css('width').split('px')[0]))+200
+          $(parentWindow.document.getElementsByClassName('popView')).css('width',widthTemp+'px')
+          setTimeout(function() {
+            $(parentWindow.document.getElementsByClassName('popView')).css('height',$('.base-body').css('height'))
+          },500)
+
+        },
+        error: function (error) {
+          console.log(params.nodeId + "图层弹框加载错误，", error.message);
+        }
+      });
+    }
+    function quickSort(ary){
+      if(ary.length<=1){
+        return ary;
+      }
+      var num=Math.floor(ary.length/2);
+      var numValue=ary.splice(num,1)[0];
+      var left=[];
+      var right=[];
+      for(var i=0; i<ary.length; i++){
+        var cur=ary[i];
+        if(cur<numValue){
+          left.push(cur);
+        }else{
+          right.push(cur);
+        }
+      }
+      return quickSort(left).concat([numValue],quickSort(right));
+    }
+  </script>
+</head>
+<body>
+<div class="content">
+  <div style="border-bottom: 1px solid #196db4; margin: auto 10px;/*height: 35px;*/overflow: hidden;">
+    <div class="title"></div><div style="display: inline-block;"><img src="../futian/img/close.png" onclick="closePopup()"></div>
+  </div>
+  <ul>
+    <!--<li><span class="title">预警对象：</span><span class="msg">预警对象预警对象预警对象</span></li>-->
+    <!--<li><span class="title">内容：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">预警类型：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">预警名称：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">预警等级：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">处置状态：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">分拨状态：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">预警详情：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">所属区域：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">发布时间：</span><span class="msg">预警对象预警对象</span></li>-->
+    <!--<li><span class="title">发布人：</span><span class="msg">预警对象预警对象</span></li>-->
+  </ul>
+  <div class="base-footer">
+    <!--<a class="base-underline" onclick="zooTo()"><span>缩放至</span></a>-->
+    <!-- <a class="base-underline" onclick="clearNearby()"><span>清除</span></a>-->
+    <a class="base-underline" onclick="queryNearby()"><span>附近资源</span></a>
+    <a class="base-btn" onclick="openDetailMsg()" id="popup_detail"><span>查看详情</span></a>
+  </div>
+</div>
+</body>
+</html>

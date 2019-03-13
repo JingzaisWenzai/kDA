@@ -1,0 +1,26 @@
+{
+  "name":"凤塘河口",
+  "attr":[
+    {"name":"浊度(mg/L)","value":"16.95"},
+    {"name":"pH","value":"6.93"},
+    {"name":"溶解氧（mg/L）","value":"0.24"},
+    {"name":"水温（℃）","value":"24.94"},
+    {"name":"电导率（μS/cm）","value":"16676.23"},
+    {"name":"化学需氧量（mg/L）","value":"41.85"},
+    {"name":"负氧离子","value":"955.507476"}
+  ],
+  "data":[
+    {"name":"浊度(mg/L)","value":"16.95"},
+    {"name":"pH","value":"6.93"},
+    {"name":"溶解氧（mg/L）","value":"0.24"},
+    {"name":"水温（℃）","value":"24.94"},
+    {"name":"电导率（μS/cm）","value":"16676.23"},
+    {"name":"化学需氧量（mg/L）","value":"41.85"},
+    {"name":"负氧离子","value":"955.507476"},
+    {"name":"PM1","value":"13.985103"},
+    {"name":"总氮（mg/L）","value":"12.5"},
+    {"name":"氨氮（mg/L）","value":"3.8"},
+    {"name":"总磷（mg/L）","value":"0.42"}
+  ],
+  "url":"/web/img/images/test_03.png"
+}

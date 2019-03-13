@@ -1,0 +1,25 @@
+/* --------原始弹框--------*/
+.esri-popup__main-container {
+    width: auto !important;
+    min-width: 260px !important;
+    max-width: 600px !important;
+    /*min-height: 200px !important;*/
+    max-height: 800px !important;
+}
+
+.esri-popup__header-title {
+    font-size: 16px !important;
+    color: #0077ed !important;
+}
+
+/*版权信息清除*/
+.esri-attribution__powered-by{
+  display: none !important;
+}
+
+
+
+/* --------自定义图层弹框--------*/
+
+
+/* --------自定义图层弹框2--------*/

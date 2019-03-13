@@ -1,0 +1,7 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[114.275559,22.735704]},"properties":{"type":7,"id":3,"keyword":"天桥","name":"沙湾天桥","address":"深圳市罗湖区丹沙路"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[114.284452,22.733807]},"properties":{"type":7,"id":3,"keyword":"天桥","name":"创维天桥","address":""}},
+
+
+{"type":"Feature","geometry":{"type":"Point","coordinates":[114.13969,22.55901]},"properties":{"type":7,"id":3,"keyword":"天桥","name":"北环沙河东天桥","address":"广东省深圳市南山区"}}
+]}

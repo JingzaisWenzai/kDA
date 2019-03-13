@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+
+    <meta charset="UTF-8">
+    <TITLE>XHCameraPlayWeb</TITLE>
+
+    <script src="../jquery-1.11.1.min.js"></script>
+  <script src="../../../../../../../js/baseUrl_1.js"></script>
+    <script src="./LoadingData.js"></script>
+
+</HEAD>
+<!--<OBJECT name="XHCameraPlayOCX1" ID="XHCameraPlayOCX1" WIDTH=100% HEIGHT=100%
+        classid="CLSID:31933369-A923-4809-B2CD-B992359DE7F4" codebase="XHCameraPlayOCX.ocx"></OBJECT>-->
+		<OBJECT name="XHCameraPlayOCX1" ID="XHCameraPlayOCX1" WIDTH=100% HEIGHT=100% classid="CLSID:31933369-A923-4809-B2CD-B992359DE7F4" codebase="XHCameraPlayOCX.ocx" ></OBJECT>
+
+<BODY onload="Login1()" onunload="Logout1()" onbeforeunload="Logout1()">
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+<!--<INPUT ID="Button11" TYPE="button" VALUE="登录" onclick="javascript:Login1();"/>-->
+<!--<INPUT ID="Button12" TYPE="button" VALUE="注销" onclick="javascript:Logout1();"/>-->
+<!--<INPUT ID="Button13" TYPE="button" VALUE="开始" onclick="javascript:StartLivePlay1();"/>-->
+<!--<INPUT ID="Button14" TYPE="button" VALUE="停止" onclick="javascript:StopLivePlay1();"/>-->
+<!--<br>-->
+<script language="javascript">
+
+    $(function () {
+        $(document).ready(function () {
+            // getData.subscribe('getVideosData',getVideosData);
+            // getData.publish('getVideosData','GET',baseUrl.baseUrl+'/videop/user?tag=0');
+
+        });
+    });
+    //let baseUrl = 'http://10.192.19.107:8081';
+    // let baseUrl = 'http://10.190.55.58:8081';
+    var videosObj = {};
+    //videosObj.videosId = '614f4f0d8a780ed18742f0193cd31af4';
+	  videosObj.videosId = '';
+
+    function getBigVideos(event) {
+        var width = Number($(window.parent.document.getElementById("videoHtml2")).css('width').split('px')[0]);
+        var height = Number($(window.parent.document.getElementById("videoHtml2")).css('height').split('px')[0]);
+        if(event.value === '放大'){
+            event.value = '缩小';
+            $(window.parent.document.getElementById("videoHtml2")).css('height',height*2);
+            $(window.parent.document.getElementById("videoHtml2")).css('width',width*2);
+        }else {
+            event.value = '放大';
+            $(window.parent.document.getElementById("videoHtml2")).css('height',height/2);
+            $(window.parent.document.getElementById("videoHtml2")).css('width',width/2);
+        }
+		// videosObj.videosId = parent.videopId;
+		// document.location.reload();
+    }
+
+    function getVideosData(data) {
+//        console.log(data);
+        videosObj.userName = data.user;
+        videosObj.passWord = data.password;
+        var login = XHCameraPlayOCX1.Login(0, "10.192.76.20", 8082, videosObj.userName, videosObj.passWord);
+        console.log(login);
+      var time = setInterval(function () {
+        if(login === 0){
+          StartLivePlay1();
+          clearInterval(time);
+        }
+      },1000)
+		/*
+		if(parent.videopId.length>0){
+			parent.videopId = videosObj.videosId;
+			 StartLivePlay1();
+		}*/
+
+    }
+
+    function Login1() {
+        getData.subscribe('getVideosData',getVideosData);
+        getData.publish('getVideosData','GET',baseUrl+'/videop/user?tag=0');
+        <!--XHCameraPlayOCX1.Login(0,"190.15.116.8",8082,"jingyimap","888888");-->
+    }
+
+    function Logout1() {
+        var logout = XHCameraPlayOCX1.Logout();
+        console.log(logout);
+    }
+
+    var ulplayhandle1 = 0;
+
+    function StartLivePlay1() {
+        ulplayhandle1 = XHCameraPlayOCX1.StartLivePlay(videosObj.videosId,1);
+        console.log(ulplayhandle1);
+    }
+
+    function StopLivePlay1() {
+        var stop = XHCameraPlayOCX1.StopLivePlay(ulplayhandle1);
+        console.log(stop);
+    }
+
+</script>
+
+</BODY>

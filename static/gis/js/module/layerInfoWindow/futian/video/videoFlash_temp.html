@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>视频</title>
+  <link rel="stylesheet" href="../../base/css/reset.css">
+  <link href="../../futian/video/video.css" rel="stylesheet">
+  <script src="../../../../../../js/baseUrl_1.js"></script>
+  <script src="../../futian/js/jquery-1.11.1.min.js"></script>
+  <script src="../../futian/video/video.js"></script>
+  <script src="../../futian/video/videojs-contrib-hls.js"></script>
+  <style type="text/css">
+    .videoBoxTool{
+      background-color: black;
+    }
+    .videoBoxTool ul {
+      width: 100%;
+      /*height: 600px;*/
+      margin: 0;
+      padding: 0;
+    }
+
+    .videoBoxTool ul .video_li {
+      list-style: none;
+      display: inline-block;
+      margin: 0;
+      padding: 2px;
+      cursor: pointer;
+      width: 400px;
+      height: 300px;
+      position: relative;
+    }
+    .videoBoxTool ul .video_li .video_li_select {
+      position: absolute;
+      right: 10px;
+      color: #43d3ff;
+      top: 10px;
+    }
+
+    .videoBoxTool ul .video_li:nth-child(5), .videoBoxTool ul li:nth-child(6), .videoBoxTool ul li:nth-child(7), .videoBoxTool ul li:nth-child(8), .videoBoxTool ul li:nth-child(9) {
+      display: none;
+    }
+
+    .videoBoxTool ul .video_li input {
+      cursor: pointer;
+    }
+    .videoBoxTool .video_span_select{
+      cursor: pointer;
+      color: #43d3ff;
+      padding: 5px;
+    }
+
+    /*.videoBoxTool ul :nth-child(2n+1) {*/
+    /*padding-right: 0px;*/
+    /*}*/
+  </style>
+</head>
+<body>
+<div class="videoBoxTool">
+  <ul>
+    <li class="video_li">
+      <video id="my-video_0" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(0)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(1)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_2" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(2)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_3" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(3)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_4" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(4)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_5" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(5)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_6" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(6)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_7" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(7)">选择</span>
+    </li>
+    <li class="video_li">
+      <video id="my-video_8" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%"
+             poster=""
+             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+        <source src="" type="rtmp/flv" style="cursor: pointer;">
+        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <span class="video_li_select" onclick="selectVideo(8)">选择</span>
+    </li>
+  </ul>
+  <span class="video_span_select" onclick="changeVideoShow(4)">四宫格</span>
+  <span class="video_span_select" onclick="changeVideoShow(9)">九宫格</span>
+  <span class="video_span_select" onclick="hide(0)">隐藏</span>
+  <span class="video_span_select" onclick="hide(1)">关闭</span>
+</div>
+</body>
+<script type="text/javascript">
+  var parentWindow = window.parent
+  var params = window.location.href//获取url参数
+  // var videoId = params.videoId
+  var videoIndex = 0
+  var userId = ''
+  var videoObj = {};
+  (function() {
+    console.log(123)
+    $(document).ready(function() {
+      console.log(456)
+      changeVideoShow(4)
+      selectVideo(0)
+    })
+  })()
+
+  // function getVideoElement(index) {
+  //   return '<li onclick="selectVideo('+index+')"><video id="my-video_' + index + '" class="video-js vjs-default-skin vjs-big-play-centered" controls=""\n' +
+  //     '             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%" poster=""\n' +
+  //     '             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">\n' +
+  //     '        <source src="" type="rtmp/flv" style="cursor: pointer;">\n' +
+  //     '        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。\n' +
+  //     '          To view this video please enable JavaScript, and consider upgrading to a web browser that\n' +
+  //     '          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>\n' +
+  //     '        </p>\n' +
+  //     '      </video></li>'
+  // }
+
+  function getUserId(videoId) {
+    let $this = this
+    /*获取视频ID*/
+    videojs.options.flash.swf = '/web/gis/js/module/layerInfoWindow/futian/video/video-js.swf'
+    //获取用户id
+    var param = {
+      'loginName': 'zdk',
+      'Password': '21218cca77804d2ba1922c33e0151105',
+      'clientsrc': 'pc',
+      'sureLogin': '1',
+      'IsRenew': '0',
+      'clientmac': ' 00-FF-62-87-82-1C',
+      'clientip': '2.0.1.7',
+      'systemversion': 'Microsoft Windows NT 6.2.9200.0',
+      'clientversion': 'V10.12.5.170506'
+    }
+    $.ajax({//http://10.192.76.20:8082
+      url: 'http://10.192.76.20:8082/xEyeWeb/user/userLogin.do',
+      type: 'post',
+      dataType: 'json',
+      data: param,
+      success: function(data2) {
+        console.log(data2)
+        if (data2.msg === 'success') {
+          //开始播放
+          userId = data2.userInfo.id
+          playVideo(videoId)
+        } else {
+          alert('获取用户id失败:' + data2.msg)
+        }
+      }
+    })
+  }
+
+  function playVideo(videoId) {
+    if (videoObj['' + videoIndex] !== undefined && videoObj['' + videoIndex].session !== undefined) {
+      clearInterval(videoObj['' + videoIndex].timer)
+      logOut(videoObj['' + videoIndex].session)
+    } else {
+      videoObj['' + videoIndex] = {}
+    }
+    //开始播放
+    $.ajax({//http://10.192.76.95:8016
+      url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=start&platform=pc&userid=' + userId + '&cameraid=' + videoId + '&type=realplay',
+      type: 'post',
+      dataType: 'json',
+      success: function(data3) {
+        console.log(data3)
+        if (data3.descripe === 'success') {
+          //存储session,覆盖前一个时，要暂停当前video
+          videoObj[(videoIndex + '')].session = data3.sessionid
+
+          videojs('my-video_' + videoIndex, {}).ready(function() {
+            var player = this
+            player.src(data3.rtmpUrl)
+            player.play()
+
+            // 启动心跳
+            getHeart(data3.sessionid)
+          })
+        } else {
+          alert('播放失败:' + data3.descripe)
+        }
+      }
+    })
+  }
+
+  function getHeart(sessionid) {
+    // 启动心跳
+    var timer = setInterval(function() {
+      //发送心跳
+      $.ajax({//http://10.192.76.95:8016
+        url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=heartbeat&sessionid=' + sessionid + '&type=realplay',
+        type: 'post',
+        dataType: 'json',
+        success: function(data4) {
+          console.log(data4)
+          if (data4.descripe === 'success') {
+
+          } else {
+            alert('发送心跳失败:' + data4.descripe)
+          }
+        }
+      })
+    }, 10000)
+    videoObj[(videoIndex + '')].timer = timer
+  }
+
+  function logOut(session) {
+    $.ajax({//http://10.192.76.95:8016
+      url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=stop&sessionid=' + session,
+      type: 'post',
+      dataType: 'json',
+      success: function(data4) {
+        console.log(data4)
+        if (data4.descripe === 'success') {
+          console.log('暂停成功！')
+        } else {
+          console.log('暂停失败：' + data4.descripe)
+        }
+      }
+    })
+  }
+
+  function selectVideo(index) {
+    videoIndex = index
+    console.log(videoObj['' + videoIndex])
+    $('.videoBoxTool ul .video_li').css({ backgroundColor: 'transparent' })
+    $('.videoBoxTool ul .video_li').eq(videoIndex).css({ backgroundColor: 'lightgray' })
+  }
+
+  function changeVideoShow(num) {
+    if (num > 4) {
+      $('.videoBoxTool ul .video_li').css({
+        width: '266px',
+        height: '200px'
+      })
+      for (var i = 4, j = num; i < j; i += 1) {
+        $('.videoBoxTool ul .video_li').eq(i).css({ display: 'inline-block' })
+      }
+    } else {
+      $('.videoBoxTool ul .video_li').css({
+        width: '400px',
+        height: '300px'
+      })
+      for (var i = 4, j = 9; i < j; i += 1) {
+        $('.videoBoxTool ul .video_li').eq(i).hide()
+      }
+    }
+
+  }
+
+  function getVideosId(id) {
+    console.log(id)
+    if (userId !== '') {
+      playVideo(id)
+    } else {
+      getUserId(id)
+    }
+  }
+
+  function hide(num) {
+    if(num === 0){
+      $(window.parentWindow.parent.document.getElementById('videoFlash')).hide()
+    }else {
+      $(window.parentWindow.parent.document.getElementById('videoFlash')).hide()
+    }
+  }
+</script>
+</html>

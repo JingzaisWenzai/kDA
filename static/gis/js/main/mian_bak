@@ -1,0 +1,199 @@
+/**
+ * Created by Administrator on 2018/3/6.
+ */
+
+require([
+    "esri/config",
+    "esri/Map",
+    "esri/Basemap",
+    "esri/views/MapView",
+    "esri/views/SceneView",
+    "esri/layers/Layer",
+    "esri/layers/WMTSLayer",
+    "esri/layers/TileLayer",
+    "esri/layers/WebTileLayer",
+    "esri/layers/SceneLayer",
+    "esri/layers/MapImageLayer",
+    "esri/layers/FeatureLayer",
+    "esri/layers/GraphicsLayer",
+    "esri/Graphic",
+    "esri/geometry/Extent",
+    "esri/geometry/Point",
+    "esri/geometry/Polyline",
+    "esri/geometry/Polygon",
+    "esri/geometry/Circle",
+    "esri/WebMap",
+    "esri/widgets/LayerList",
+    "esri/request",
+    "dojo/domReady!"
+], function (esriConfig, Map, Basemap, MapView, SceneView, Layer, WMTSLayer, TileLayer, WebTileLayer, SceneLayer, MapImageLayer, FeatureLayer, GraphicsLayer, Graphic, Extent, Point, Polyline, Polygon, Circle, WebMap, LayerList, esriRequest) {
+    esriConfig.portalUrl = "https://gisserver.giscloud/arcgis";
+    esriConfig.request.corsEnabledServers.push("192.168.16.250:6080");
+    esriConfig.request.corsEnabledServers.push("cache1.arcgisonline.cn");
+
+
+    var appConfig = {
+        mapView: null,
+        sceneView: null,
+        activeView: null,
+        container: "viewDiv"
+    };
+
+    //基础电子底图
+    var normBaseLayer = new TileLayer({
+        url: MapConfig.normMap.Url,
+        id: "normBaseLayer"
+    });
+    var normBasemap = new Basemap({
+        baseLayers: [normBaseLayer],
+        title: "影像底图",
+        id: "normBasemap"
+    });
+
+    //影像底图
+    var imgBaseLayer = new TileLayer({
+        url: MapConfig.imgMap.Url,
+        id: "imgBaseLayer"
+    });
+    var imgBasemap = new Basemap({
+        baseLayers: [imgBaseLayer],
+        title: "影像底图",
+        id: "imgBasemap"
+    });
+
+
+    //地图对象
+    var map = new Map({
+        basemap: normBasemap
+    });
+    window.map = map;
+
+    var initialViewParams = {
+        map: map,
+        zoom: 6,
+        center: MapConfig.center,
+        /* extent: new Extent({
+         xmin: MapConfig.mapInitParams.extent.xmin,
+         ymin: MapConfig.mapInitParams.extent.ymin,
+         xmax: MapConfig.mapInitParams.extent.xmax,
+         ymax: MapConfig.mapInitParams.extent.ymax,
+         spatialReference: {
+         wkid: MapConfig.mapInitParams.spatialReference.wkid
+         }
+         }),*/
+        container: appConfig.container
+    };
+
+    /* var map = new Map({
+     basemap: "streets",
+     ground: "world-elevation"
+     });
+
+     var initialViewParams = {
+     map: map,
+     zoom: 4,
+     center: [15, 65],
+     container: appConfig.container
+     }*/
+
+
+    appConfig.mapView = createView(initialViewParams, "2d");
+    appConfig.activeView = appConfig.mapView;
+
+    /* initialViewParams.container = null;
+     appConfig.sceneView = createView(initialViewParams, "3d");*/
+
+
+    // switch the view between 2D and 3D each time the button is clicked
+    /*var switchButton = document.getElementById("switch-btn");
+     switchButton.addEventListener("click", function () {
+     switchView();
+     });*/
+
+    /*function switchView() {
+     var is3D = appConfig.activeView.type === "3d";
+     appConfig.activeView.container = null;
+     if (is3D) {
+     appConfig.mapView.viewpoint = appConfig.activeView.viewpoint.clone();
+     appConfig.mapView.container = appConfig.container;
+     appConfig.activeView = appConfig.mapView;
+     switchButton.value = "3D";
+     } else {
+     appConfig.sceneView.viewpoint = appConfig.activeView.viewpoint.clone();
+     appConfig.sceneView.container = appConfig.container;
+     appConfig.activeView = appConfig.sceneView;
+     switchButton.value = "2D";
+     }
+     }*/
+
+    // convenience function for creating a 2D or 3D view
+    function createView(params, type) {
+        var view;
+        var is2D = type === "2d";
+        if (is2D) {
+            view = new MapView(params);
+            return view;
+        } else {
+            view = new SceneView(params);
+        }
+        return view;
+    }
+
+    var imageLayer = new MapImageLayer({
+        title: "城市部件",
+        url: "http://192.168.16.250:6080/arcgis/rest/services/SZCity/SZCityComponents/MapServer"
+    });
+    map.add(imageLayer);
+
+
+    //图层控制
+    appConfig.activeView.when(function () {
+        var layerList = new LayerList({
+            view: appConfig.activeView
+        });
+
+        // Add widget to the top right corner of the view
+        appConfig.activeView.ui.add(layerList, "top-right");
+    });
+
+
+    //要素图层加载
+
+    //绘制，point|polyline|polygon|rectangle|circle
+    var graphicsLayer = new GraphicsLayer();
+    map.add(graphicsLayer);
+
+    var drawTools = new DrawTools(appConfig.activeView, Graphic, Point, Polyline, Polygon, Circle);
+
+    var polygonSymbol = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: [227, 139, 79, 0.8],
+        outline: { // autocasts as new SimpleLineSymbol()
+            color: [255, 255, 255],
+            width: 1
+        }
+    };
+
+    /*drawTools.draw("circle", polygonSymbol, function (graphic) {
+     //var graphicsLayer=new GraphicsLayer();
+     graphicsLayer.add(graphic);
+     //map.add(graphicsLayer);
+     })*/
+
+    // var url = "http://192.168.16.248:8080/gismap/gis/js/plugin/geojson.js";
+    // var url = " https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer";
+    /*var url = " https://www.sojson.com/open/api/weather/json.shtml";
+     var options = {
+     query: {
+     city: '北京'
+     },
+     responseType: 'json'
+     };
+     esriRequest(url, options).then(function (response) {
+     console.log('response', response);
+     var responseJSON = JSON.stringify(response, null, 2);
+     console.log(responseJSON);
+     });
+     console.log("123");*/
+
+});

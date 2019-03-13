@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!--<script src="js/common.js"></script>-->
+
+    <script>
+        /** ---------------------弹框初始化---------------------*/
+        var parentWindow = window.parent;
+        var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+
+        parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+        /** ---------------------弹框按钮---------------------*/
+        //按钮-关闭
+        function closePopup() {
+            parentWindow.mapView.popup.close();
+        }
+
+        //按钮-查看详情
+        function openDetailMsg() {
+            parentWindow.parent.monographicLayer.loadSFDetailMessage(params.nodeId, params.featureId)
+        }
+
+        //按钮-周边查询
+        function queryNearby() {
+            parentWindow.module.layerControl.common.loadUtil.drawCirleQuery(params.longitude, params.latitude);
+        }
+
+        /** ---------------------弹框工具---------------------*/
+        //工具--缩放至
+        function zooTo() {
+            parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+        }
+
+        //工具--清除周边
+        function clearNearby() {
+            parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+        }
+
+        /** ---------------------弹框数据填充---------------------*/
+        parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function (data) {
+            console.log(data);
+        })
+
+    </script>
+</head>
+<body>
+<div style="width:100%;height: 320px;background-color: grey">
+    asdfasd
+    asdf
+    adf
+    <a href="javascript:void(0);" onclick="closePopup()" title="关闭">关闭</a>
+    <a href="javascript:void(0);" onclick="zooTo()" title="缩放至">缩放至</a>
+
+</div>
+</body>
+</html>

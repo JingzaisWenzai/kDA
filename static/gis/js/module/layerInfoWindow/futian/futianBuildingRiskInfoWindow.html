@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /* ---------------------------建筑风险----------------------------------------------------------------------------------------------------*/
+        .b{width: 340px;height: 470px; text-align: left; margin: 0 auto; overflow: hidden; top:170px; left:820px;border: 1px solid #196db4;background-color: #032335; box-shadow:0 0 5px #e6e6e6;}
+        .b_a_0{width: 90%;height: 50px; margin: 0 auto;position: relative;border-bottom: 1px solid #015376;}
+        .b_a_0 span{display: block;text-align: center;font-size: 24px; padding:12px 0;color:#7af3ff;}
+        .b_a_0 i{position: absolute; left:100%; top:50%; margin-left: -50px;margin-top:-10px;background: url('./img/close.png') center no-repeat;background-size: 20px 20px;width: 20px;height:20px;}
+        .b_a{width:90%; height:calc(100% - 50px); text-align: left; margin: 0px auto; overflow: hidden; padding: 0; background-color: transparent; }
+        .b_a_b,.b_a_b2,.b_a_b3{width:90%; height:60px; padding:10px 0; text-align: left; margin: 0 auto; overflow: hidden; border-bottom: 1px solid #015376;}
+        .b_a_b span,.b_a_b2 span,.b_a_b3 span{display: inline-block;vertical-align: middle; overflow: hidden; }
+        .b_a_b span:nth-child(1),.b_a_b2 span:nth-child(1),.b_a_b3 span:nth-child(1){width:140px; height:30px; line-height: 30px; text-align: left; margin: 0px 0 60px 0px; overflow: hidden; font-size: 16px; color: #7af3ff;}
+        .b_a_b span:nth-child(2){width:auto; height:auto; line-height:30px; text-align: left; margin: 0; overflow: hidden; font-size: 28px; color: #007c03;}
+        .b_a_b span:nth-child(3){width:auto; height:auto; line-height:30px; text-align: center; margin: 0; overflow: hidden; font-size: 18px; color: #ebf1f5; background-color: #007c03; border-radius: 5px;padding: 0 8px;}
+
+        .b_a_b2 span:nth-child(2){width:auto;height:auto;  line-height:30px; text-align: left; margin: 0; overflow: hidden; font-size: 28px; color: #FF6600;}
+        .b_a_b2 span:nth-child(3){width:auto; height:auto;  line-height:30px; text-align: center; margin:0; overflow: hidden; font-size: 18px; color: #0a1d2b; background-color: #FF6600; border-radius: 5px;}
+
+        .b_a_b3 span:nth-child(2){width:auto; height:auto;  line-height:30px; text-align: left; margin: 0; overflow: hidden; font-size: 28px; color: #ff0000;}
+        .b_a_b3 span:nth-child(3){width:auto;height:auto;  line-height:30px; text-align: center; margin:0; overflow: hidden; font-size: 18px; color: #0a1d2b; background-color: #ff0000; border-radius: 5px;}
+
+        .b_a_c{width:100%; height:160px; text-align: center; margin: 0px auto; overflow: hidden; padding: 10px 0px; border-bottom: 1px solid #015376;}
+        .b_a_d{width:90%; height:70px; text-align: center; margin: 15px auto 10px; overflow-x: hidden;overflow-y: auto;}
+        .b_a_d_a{width:90%; height:30px; line-height: 30px; text-align: left; margin: 0px auto; overflow: hidden; font-size: 18px; color: #7af3ff;}
+        .b_a_d_b{width:90%; height:60px; line-height: 30px; text-align: left; margin: 0px auto; overflow: hidden; font-size: 16px; color: #5fb6ff;}
+        .b_a_e{width:80px; height:35px; line-height: 35px; text-align: center; margin:0 0 0 70%; overflow: hidden;}
+        .b_a_e a{width:80px; height:35px; line-height: 35px; text-align: center; margin: 0px auto; overflow: hidden; display: block; text-decoration: none; font-size: 18px; color: #ebf1f5; background-color: #196db4; border-radius:5px ;}
+        .b_b{width:22px; height:12px; text-align: left; margin:-6px 209px 0px 209px; overflow: visible;}
+        .b_b img{width:22px; height:12px;}
+
+        .base-footer{width: 95%;height:50px; margin:0 auto; position: relative;}
+        .base-footer .base-underline{ font-size:10px;margin:10px 30px 0 0;  width:auto;height:30px;line-height: 30px;display: block;float:left; padding:0 8px;background-color: #196db4;border-radius: 5px;color: #fff;}
+        .base-footer a span{display: block;width: 60px;/*width: 100%;*/background-color: transparent;}
+        .base-footer a.base-btn{font-size: 12px;display:block;padding:0 8px;height:30px; width: 50px;line-height: 30px; position: absolute; right: 5px; top:50%;margin-left:-60px;margin-top:-15px;background-color: #196db4;border-radius: 5px;color: #fff;}
+
+    </style>
+    <script src="./js/echarts.min.js" type="text/javascript" language="javascript"></script>
+    <script src="./js/jzfx.js" type="text/javascript" language="javascript"></script>
+    <script src="../../../../../js/baseUrl_1.js" type="text/javascript"></script>
+
+
+    <script src="../../../../../js/OneMap/detailAlert.js"></script>
+    <script>
+        /** ---------------------弹框初始化---------------------*/
+        var parentWindow = window.parent;
+        var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+
+        parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+        /** ---------------------弹框按钮---------------------*/
+        //按钮-关闭
+        function closePopup() {
+          parentWindow.mapView.popup.close();
+        }
+
+        //按钮-查看详情
+        function openDetailMsg() {
+          //console.log(parentWindow.parent);
+          detailAlert.loadSFDetailMessage(params.nodeId, params.featureId);
+        }
+
+        //按钮-周边查询
+        function queryNearby() {
+          //控制周边搜索弹框以及将数据传出
+          detailAlert.sendCircleSearchInfo(params.nodeId,params.featureId,params.latitude,params.longitude);
+        }
+
+        /** ---------------------弹框工具---------------------*/
+        //工具--缩放至
+        function zooTo() {
+          parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+        }
+
+        //工具--清除周边
+        function clearNearby() {
+          parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+          detailAlert.sendClearNearByNodes();
+        }
+
+        /** ---------------------弹框数据填充---------------------*/
+        /* parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function (data) {
+             console.log(data);
+         })*/
+
+        //数据加载---样例代码
+        window.onload = function () {
+            console.log(1234);
+            var node = parent.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId);
+            /*var getPopupDataUrl = node.url + "/t_build_info_v/build/score";*/
+            console.log(params);
+            var getPopupDataUrl = baseUrl;
+            //urlB = getPopupDataUrl;
+            var options = {
+                query: {
+                    buildid: params.featureId,
+                    type: parent.MapConfig.backgroundService.webType
+                },
+                responseType: 'json'
+            };
+
+
+            $.ajax({
+                url: getPopupDataUrl+"/T_BUILD_INFO_V/build/score",
+                type: 'GET',
+              headers:{
+                  token:parentWindow.module.common.layerControl.mapNet.getCookieByName("Admin-Token")
+              },
+                data: options.query,
+                dataType: "json", //指定服务器返回的数据类型
+                async: false,
+                success: function (data) {
+                  if(data.code === 10004){
+                    parentWindow.parent.window.showLoginDialog()
+                    return
+                  }
+
+                    var dataArray = [],dataXdata=[];
+                    for (var i = 0; i<data.table.length; i++){
+                        dataArray.push(data.table[i].value);
+                        dataXdata.push(data.table[i].name);
+                    }
+                    $(".b_a_b span:eq(1)").text(data.dangerScore);
+                    $(".b_a_b span:eq(2)").text(data.dangerGrader);
+                    $(".b_a_d_b").text(data.mainDanger);
+
+                    if(data.dangerGrader === "中风险"){
+                        $(".b_a div:first").removeClass("b_a_b");
+                        $(".b_a div:first").removeClass("b_a_b3");
+                        $(".b_a div:first").addClass("b_a_b2");
+                    }else if(data.dangerGrader === "高风险"){
+                        $(".b_a div:first").removeClass("b_a_b");
+                        $(".b_a div:first").removeClass("b_a_b2");
+                        $(".b_a div:first").addClass("b_a_b3");
+                    }else{
+                        $(".b_a div:first").removeClass("b_a_2");
+                        $(".b_a div:first").removeClass("b_a_b3");
+                        $(".b_a div:first").addClass("b_a_b");
+                    }
+
+                    jzfx.init(dataArray,dataXdata,'jzfx');
+
+                },
+                error: function (error) {
+                    console.log(params.nodeId + "图层弹框加载错误，", error.message);
+                }
+            });
+        }
+
+    </script>
+
+    <link rel="stylesheet" href="../base/css/reset.css">
+    <script src="../base/js/jquery-1.11.1.min.js"></script>
+
+</head>
+<body style="width: 340px;height: 490px;">
+
+<div class="b">
+    <div class="b_a_0"><span>建筑风险</span><i onclick="closePopup()"></i></div>
+    <div class="b_a">
+        <div class="b_a_b">
+            <span>建筑风险评分：</span>
+            <span>28</span>
+            <span>低风险</span>
+        </div>
+        <div class="b_a_c" id="jzfx">
+            <!--<script src="./js/yxzx.js" type="text/javascript" language="javascript"></script>-->
+        </div>
+        <div class="b_a_d">
+            <div class="b_a_d_a">
+                主要隐患：
+            </div>
+            <div class="b_a_d_b">
+                建筑耐火等级不高，建筑隐患较多，企业安全生产隐患较多
+            </div>
+        </div>
+      <div class="base-footer">
+        <!--<a class="base-underline" onclick="zooTo()"><span>缩放至</span></a>-->
+        <!--<a class="base-underline"  onclick="clearNearby()"><span>清除</span></a>-->
+        <a class="base-underline"  onclick="queryNearby()"><span>附近资源</span></a>
+        <a class="base-btn" onclick="openDetailMsg()" id="popup_detail"><span>查看详情</span></a>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>

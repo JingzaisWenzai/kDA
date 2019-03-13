@@ -1,0 +1,171 @@
+﻿@charset "utf-8";
+* {-webkit-tap-highlight-color: transparent;appearance: normal;-webkit-appearance: normal;}
+html{ -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;font-size: 100%;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%;  background: transparent;
+    font-family: "微软雅黑";  }
+table {border-collapse:collapse;border-spacing:0;}
+fieldset, img {	border:0; }
+address, caption, cite, code, dfn, em, strong, th, var {font-style:normal;font-weight:normal;  }
+ol, ul { list-style:none; }
+caption, th { text-align:left; }
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;  }
+:focus { outline: 0;}
+a{ text-decoration:none;}
+a:hover img{ border:none;}
+img {max-width: 100%;  border: 0 none; }
+/*清除浮动*/
+.clearfix:after {  content: "."; display: block;  height: 0;  clear: both;  visibility: hidden;  }
+@media screen and (-webkit-min-device-pixel-ratio:0){select,input{outline:none;}}
+body,html{font-family:"微软雅黑"; font-size:12px; line-height:25px; min-height:100%; text-align:center; margin:0px auto; }
+a:hover,a:active,a:focus{text-decoration:underline; cursor:pointer;}
+
+
+
+
+/*导航栏的特殊样式*/
+::-webkit-scrollbar{width:16px!important;height:16px!important;}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb{border-radius:999px!important; border:4px solid transparent!important;}
+::-webkit-scrollbar-track{box-shadow:1px 1px 5px rgba(185,165,150,.2) inset!important;}
+::-webkit-scrollbar-thumb{min-height:20px!important;background-clip:content-box!important;box-shadow: 0 0 0 5px rgba(25,109,180,0.5) inset!important;}
+::-webkit-scrollbar-corner{/*background:transparent;*/}
+
+/*
+.col_1 table thead tr td,
+.col_1 table tbody tr td{
+    width:100%!important;
+}
+.col_2 table thead tr td:first-child,
+.col_2 table tbody tr td:first-child{
+    width:30%!important;
+}
+.col_2 table thead tr td:last-child,
+.col_2 table tbody tr td:last-child{
+    width:69%!important;
+}
+.col_3 table thead tr td:first-child,
+.col_3 table tbody tr td:first-child{
+    width:10%!important;
+}
+.col_3 table thead tr td:last-child,
+.col_3 table tbody tr td:last-child,
+.col_3 table thead tr td:nth-child(2),
+.col_3 table tbody tr td:nth-child(2){
+    width:29.5%!important;
+}
+
+!*4列*!
+.col_4 table thead tr td,
+.col_4 table tbody tr td{
+    width: 29%!important;
+}
+.col_4 table thead tr td:first-child,
+.col_4 table tbody tr td:first-child{
+    width:11.5%!important;
+}
+!*5列*!
+.col_5 table thead tr td,
+.col_5 table tbody tr td{
+    width:22%!important;
+}
+.col_5 table thead tr td:first-child,
+.col_5 table tbody tr td:first-child{
+    width:10%!important;
+}
+
+
+!*6列*!
+.col_6 table thead tr td:first-child,
+.col_6 table tbody tr td:first-child,
+.col_6 table thead tr td:nth-child(4),
+.col_6 table tbody tr td:nth-child(4),
+.col_6 table thead tr td:nth-child(5),
+.col_6 table tbody tr td:nth-child(5),
+.col_6 table thead tr td:nth-child(6),
+.col_6 table tbody tr td:nth-child(6){
+    width: 15.1%!important;
+}
+
+.col_6 table thead tr td:nth-child(2),
+.col_6 table tbody tr td:nth-child(2),
+.col_6 table thead tr td:nth-child(3),
+.col_6 table tbody tr td:nth-child(3){
+    width: 19%!important;
+}
+!*7列*!
+
+.col_7 table thead tr td:first-child,
+.col_7 table tbody tr td:first-child{
+    width:8%!important;
+}
+.col_7 table thead tr td:nth-child(2),
+.col_7 table tbody tr td:nth-child(2),
+.col_7 table thead tr td:nth-child(3),
+.col_7 table tbody tr td:nth-child(3),
+.col_7 table thead tr td:nth-child(4),
+.col_7 table tbody tr td:nth-child(4),
+.col_7 table thead tr td:nth-child(5),
+.col_7 table tbody tr td:nth-child(5),
+.col_7 table thead tr td:nth-child(6),
+.col_7 table tbody tr td:nth-child(6),
+.col_7 table thead tr td:nth-child(7),
+.col_7 table tbody tr td:nth-child(7){
+    width:15%!important;
+}
+!*8列*!
+.col_8 table thead tr td:first-child,
+.col_8 table tbody tr td:first-child,
+.col_8 table thead tr td:nth-child(2),
+.col_8 table tbody tr td:nth-child(2){
+    width: 8%!important;
+}
+.col_8 table thead tr td:nth-child(3),
+.col_8 table tbody tr td:nth-child(3),
+.col_8 table thead tr td:nth-child(4),
+.col_8 table tbody tr td:nth-child(4),
+.col_8 table thead tr td:nth-child(5),
+.col_8 table tbody tr td:nth-child(5),
+.col_8 table thead tr td:nth-child(6),
+.col_8 table tbody tr td:nth-child(6),
+.col_8 table thead tr td:nth-child(7),
+.col_8 table tbody tr td:nth-child(7),
+.col_8 table thead tr td:nth-child(8),
+.col_8 table tbody tr td:nth-child(8){
+    width: 13.6%!important;
+}
+
+!*9列*!
+.col_9 table thead tr td,
+.col_9 table tbody tr td{
+    width:11%!important;
+}
+
+.col_9 table thead tr td:first-child,
+.col_9 table tbody tr td:first-child{
+    width:10%!important;
+}
+!*10列*!
+.col_10 table thead tr td,
+.col_10 table tbody tr td{
+    width:11%!important;
+}
+.col_10 table thead tr td:first-child,
+.col_10 table tbody tr td:first-child,
+.col_10 table thead tr td:nth-child(5),
+.col_10 table tbody tr td:nth-child(5),
+.col_10 table thead tr td:nth-child(8),
+.col_10 table tbody tr td:nth-child(8),
+.col_10 table thead tr td:nth-child(9),
+.col_10 table tbody tr td:nth-child(9){
+    width:6.5%!important;
+}
+*/

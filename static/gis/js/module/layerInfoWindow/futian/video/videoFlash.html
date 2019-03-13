@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>视频</title>
+  <link rel="stylesheet" href="../../base/css/reset.css">
+  <link href="../../futian/video/video.css" rel="stylesheet">
+  <script src="../../../../../../js/baseUrl_1.js"></script>
+  <script src="../../futian/js/jquery-1.11.1.min.js"></script>
+  <script src="../../futian/video/video.js"></script>
+  <script src="../../futian/video/videojs-contrib-hls.js"></script>
+  <style type="text/css">
+    .videoBoxTool{
+      background-color: black;
+      width: 100%;
+      height: 100%;
+    }
+    .videoBoxTool .video_ul {
+      width: 100%;
+      /*height: 600px;*/
+      margin: 0;
+      padding: 0;
+    }
+
+    .videoBoxTool .video_ul .video_li {
+      list-style: none;
+      display: none;
+      margin: 0;
+      padding: 2px;
+      cursor: pointer;
+      width: 400px;
+      height: 300px;
+      position: relative;
+    }
+    .videoBoxTool .video_ul .video_li .video_li_select {
+      position: absolute;
+      right: 10px;
+      color: #43d3ff;
+      top: 10px;
+    }
+
+    /*.videoBoxTool ul .video_li:nth-child(5), .videoBoxTool ul li:nth-child(6), .videoBoxTool ul li:nth-child(7), .videoBoxTool ul li:nth-child(8), .videoBoxTool ul li:nth-child(9) {*/
+      /*display: none;*/
+    /*}*/
+
+    .videoBoxTool .video_ul .video_li input {
+      cursor: pointer;
+    }
+    .videoBoxTool .video_span_select{
+      cursor: pointer;
+      color: #43d3ff;
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    /*.videoBoxTool ul :nth-child(2n+1) {*/
+    /*padding-right: 0px;*/
+    /*}*/
+  </style>
+</head>
+<body>
+<div class="videoBoxTool">
+  <ul class="video_ul"></ul>
+  <span class="video_span_select" onclick="changeVideoShow(4)">四宫格</span>
+  <span class="video_span_select" onclick="changeVideoShow(9)">九宫格</span>
+  <!--<span class="video_span_select" onclick="changeVideoShow(18)">十八宫格</span>-->
+  <span class="video_span_select" onclick="fullScreen(0)">全屏</span>
+  <span class="video_span_select" onclick="fullScreen(1)">退出</span>
+</div>
+</body>
+<script type="text/javascript">
+  var videoIndex = 0
+  var userId = ''
+  var videoObj = {};
+  var isFullScreen = false;
+  var videoBox = 4;
+  (function() {
+    $(document).ready(function() {
+
+      var fls = flashChecker();
+      if(fls.f){
+        console.log("您安装了flash,当前flash版本为: " + fls.v + ".x");
+      }else {
+        console.log("您没有安装flash");
+      };
+
+      if(fls.f){
+
+        // liveType.ckplayer();
+        console.log("您安装了flash,当前flash版本为: " + fls.v + ".x");
+      }else {
+        //alert("您没有安装flash");
+
+        $(window.parent.document.body).append('<a href="https://get.adobe.com/cn/flashplayer/" class="flashLoadMsg" target="_blank">安装或者启用FLASH播放器</a>')
+
+        setTimeout(function() {
+          window.parent.document.getElementsByClassName('flashLoadMsg')[0].click()
+        },500);
+
+      }
+
+      for(var i = 0,j = 18;i<j;i+=1){
+        $('.videoBoxTool .video_ul').append(getVideoElement(i))
+      }
+
+      changeVideoShow(4)
+      selectVideo(0)
+    })
+  })()
+
+  function flashChecker() {
+    var hasFlash = 0;　　　　 //是否安装了flash
+    var flashVersion = 0;　　 //flash版本
+    if(document.all) {
+      var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+      if(swf) {
+        hasFlash = 1;
+        VSwf = swf.GetVariable("$version");
+        flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);
+      }
+    } else {
+      if(navigator.plugins && navigator.plugins.length > 0) {
+        var swf = navigator.plugins["Shockwave Flash"];
+        if(swf) {
+          hasFlash = 1;
+          var words = swf.description.split(" ");
+          for(var i = 0; i < words.length; ++i) {
+            if(isNaN(parseInt(words[i]))){
+              continue;
+            }
+            flashVersion = parseInt(words[i]);
+          }
+        }
+      }
+    }
+    return {
+      f: hasFlash,
+      v: flashVersion
+    };
+  }
+
+  function getVideoElement(index) {
+    return '<li class="video_li"><video id="my-video_' + index + '" class="video-js vjs-default-skin vjs-big-play-centered" controls=""\n' +
+      '             x-webkit-airplay="allow" style="width: 100%;height: 100%;cursor: pointer;" width="100%" height="100%" poster=""\n' +
+      '             webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">\n' +
+      '        <source src="" type="rtmp/flv" style="cursor: pointer;">\n' +
+      '        <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。\n' +
+      '          To view this video please enable JavaScript, and consider upgrading to a web browser that\n' +
+      '          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>\n' +
+      '        </p>\n' +
+      '      </video>' +
+      '<span class="video_li_select" onclick="selectVideo('+index+')">选择-'+index+'</span></li>'
+  }
+
+  function getUserId(videoId) {
+    let $this = this
+    videojs.options.flash.swf = '/web/gis/js/module/layerInfoWindow/futian/video/video-js.swf'
+    //获取用户id
+    var param = {
+      'loginName': 'zdk',
+      'Password': '21218cca77804d2ba1922c33e0151105',
+      'clientsrc': 'pc',
+      'sureLogin': '1',
+      'IsRenew': '0',
+      'clientmac': ' 00-FF-62-87-82-1C',
+      'clientip': '2.0.1.7',
+      'systemversion': 'Microsoft Windows NT 6.2.9200.0',
+      'clientversion': 'V10.12.5.170506'
+    }
+    $.ajax({//http://10.192.76.20:8082
+      url: 'http://10.192.76.20:8082/xEyeWeb/user/userLogin.do',
+      type: 'post',
+      dataType: 'json',
+      data: param,
+      success: function(data2) {
+        console.log(data2)
+        if (data2.msg === 'success') {
+          //开始播放
+          userId = data2.userInfo.id
+          playVideo(videoId)
+        } else {
+          alert('获取用户id失败:' + data2.msg)
+        }
+      }
+    })
+  }
+
+  function playVideo(videoId) {
+    videojs.options.flash.swf = '/web/gis/js/module/layerInfoWindow/futian/video/video-js.swf'
+    if (videoObj['' + videoIndex] !== undefined && videoObj['' + videoIndex].session !== undefined) {
+      clearInterval(videoObj['' + videoIndex].timer)
+      logOut(videoObj['' + videoIndex].session)
+    } else {
+      videoObj['' + videoIndex] = {}
+    }
+    //开始播放
+    $.ajax({//http://10.192.76.95:8016
+      url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=start&platform=pc&userid=' + userId + '&cameraid=' + videoId + '&type=realplay',
+      type: 'post',
+      dataType: 'json',
+      success: function(data3) {
+        console.log(data3)
+        if (data3.descripe === 'success') {
+          //存储session,覆盖前一个时，要暂停当前video
+          videoObj[(videoIndex + '')].session = data3.sessionid
+
+          videojs('my-video_' + videoIndex, {}).ready(function() {
+            var player = this
+            player.src(data3.rtmpUrl)
+            player.play()
+
+            // 启动心跳
+            getHeart(data3.sessionid)
+          })
+        } else {
+          alert('播放失败:' + data3.descripe)
+        }
+      }
+    })
+  }
+
+  function getHeart(sessionid) {
+    // 启动心跳
+    var timer = setInterval(function() {
+      //发送心跳
+      $.ajax({//http://10.192.76.95:8016
+        url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=heartbeat&sessionid=' + sessionid + '&type=realplay',
+        type: 'post',
+        dataType: 'json',
+        success: function(data4) {
+          console.log(data4)
+          if (data4.descripe === 'success') {
+
+          } else {
+            alert('发送心跳失败:' + data4.descripe)
+            clearInterval(timer)
+          }
+        }
+      })
+    }, 10000)
+    videoObj[(videoIndex + '')].timer = timer
+  }
+
+  function logOut(session) {
+    $.ajax({//http://10.192.76.95:8016
+      url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=stop&sessionid=' + session,
+      type: 'post',
+      dataType: 'json',
+      success: function(data4) {
+        console.log(data4)
+        if (data4.descripe === 'success') {
+          console.log('暂停成功！')
+        } else {
+          console.log('暂停失败：' + data4.descripe)
+        }
+      }
+    })
+  }
+
+  function selectVideo(index) {
+    videoIndex = index
+    $('.videoBoxTool .video_ul .video_li').css({ backgroundColor: 'transparent' })
+    $('.videoBoxTool .video_ul .video_li').eq(videoIndex).css({ backgroundColor: 'lightgray' })
+  }
+
+  function changeVideoShow(num) {
+    videoBox = num
+
+    for(var i = 0,j = 3;i<j;i+=1){
+      $('.videoBoxTool .video_span_select').css({
+        color:'#43d3ff'
+      })
+    }
+    $('.videoBoxTool .video_span_select').eq(num===4?0:(num===9?1:2)).css({
+      color:'#ff5400'
+    })
+
+    if (num === 9) {
+      $('.videoBoxTool').css({
+        width: '100%'
+      })
+      if(isFullScreen === true){
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '620px',
+          height: '340px'
+        })
+      }else {
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '266px',
+          height: '200px'
+        })
+      }
+      if(videoIndex>8){
+        selectVideo(0)
+      }
+    } else if(num === 4) {
+      $('.videoBoxTool').css({
+        width: '100%'
+      })
+      if(isFullScreen === true){
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '940px',
+          height: '510px'
+        })
+      }else {
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '400px',
+          height: '300px'
+        })
+      }
+      if(videoIndex>3){
+        selectVideo(0)
+      }
+    }else {
+      $('.videoBoxTool').css({
+        width: '200%'
+      })
+      if(isFullScreen === true){
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '620px',
+          height: '340px'
+        })
+      }else {
+        $('.videoBoxTool .video_ul .video_li').css({
+          width: '266px',
+          height: '200px'
+        })
+      }
+    }
+
+    for (var i = 0, j = 18; i < j; i += 1) {
+      if(i<num){
+        $('.videoBoxTool .video_ul .video_li').eq(i).css({ display: 'inline-block' })
+      }else {
+        $('.videoBoxTool .video_ul .video_li').eq(i).hide()
+      }
+    }
+
+  }
+
+  function getVideosId(videoid,userid) {
+    if (userId !== '') {
+      playVideo(videoid)
+    } else {
+      userId = userid
+      playVideo(videoid)
+    }
+  }
+
+  function fullScreen(type) {
+
+    var width = Number($('.videoBoxTool .video_ul .video_li').eq(0).css('width').split('px')[0])
+    var height = Number($('.videoBoxTool .video_ul .video_li').eq(0).css('height').split('px')[0])
+
+    if(type === 0){
+      if(isFullScreen === false){
+        // $('.videoBoxTool .video_ul .video_li').css({
+        //   width:width*2.3,
+        //   height:height*2.3
+        // })
+        $(window.parent.document.getElementById('videoFlash')).css({
+          width:window.screen.width,
+          height:window.screen.height,
+          top:'0px',
+          right:'80px'
+        })
+        $('.videoBoxTool .video_span_select').eq(2).html('返回')
+        isFullScreen = true
+      }else {
+        $(window.parent.document.getElementById('videoFlash')).css({
+          width: '826px',
+          height: '677px',
+          top:'80px',
+          right:'0px'
+        })
+        // $('.videoBoxTool .video_ul .video_li').css({
+        //   width:width/2.3,
+        //   height:height/2.3
+        // })
+        $('.videoBoxTool .video_span_select').eq(2).html('全屏')
+        isFullScreen = false
+      }
+
+      changeVideoShow(videoBox)
+    }else {
+      $(window.parent.parent.document.getElementById('videoFlash')).hide()
+    }
+  }
+</script>
+</html>

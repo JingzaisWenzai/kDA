@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gismap</title>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        #mapControlComponent {
+            width: 250px;
+            height: 500px;
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: darkgray;
+            overflow: auto;
+        }
+
+        #buttonDiv {
+            position: absolute;
+            bottom: 25px;
+            right: 60px;
+            background-color: whitesmoke;
+        }
+
+        #mapToggleDiv {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 6px;
+        }
+
+        #mapToggleDiv div {
+            float: left;
+            height: 100px;
+            margin-left: 3px;
+        }
+
+        #mapToggleDiv .activeMapImage {
+            border: 1px solid #0000ff;
+        }
+
+    </style>
+    <link rel="stylesheet" href="css/common/index.css">
+
+    <!--js lib-->
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <script src="js/lib/gis/turf/turf.js"></script>
+
+    <!--config-->
+  <!--<script  src="/js/detal.js"></script>-->
+  <!--路径没错，不要修改-->
+    <script src="../../web/js/baseUrl_1.js"></script>
+    <script src="js/main/config/mapConfig.js"></script>
+
+    <!--modules-->
+    <script src="js/module/common/layerControl/mapLayerXml.js"></script>
+    <script src="js/lib/gis/draw/drawTool.js"></script>
+    <script src="js/module/common/layerControl/mapLayerOperate.js"></script>
+    <script src="js/module/common/layerControl/mapNet.js"></script>
+
+    <script src="js/module/common/mapTool/mapOperate.js"></script>
+    <script src="js/module/common/mapTool/drawGeometry.js"></script>
+    <script src="js/module/common/mapTool/baseGeoTool.js"></script>
+
+    <script src="js/module/layerControl/common/convert.js"></script>
+    <script src="js/module/layerControl/common/loadUtil.js"></script>
+    <script src="js/module/layerControl/common/customPopup.js"></script>
+    <script src="js/module/layerControl/common/heatLayer.js"></script>
+
+    <script src="js/module/layerControl/basegeoLayer/baseMap.js"></script>
+    <script src="js/module/layerControl/basegeoLayer/boundary.js"></script>
+    <script src="js/module/layerControl/basegeoLayer/data.js"></script>
+    <script src="js/module/layerControl/basegeoLayer/featureMapFutian.js"></script>
+
+    <script src="js/module/layerControl/fireLayer/video.js"></script>
+
+    <script src="js/module/layerControl/floodLayer/waterPrevention.js"></script>
+    <script src="js/module/layerControl/floodLayer/weather.js"></script>
+    <script src="js/module/layerControl/floodLayer/windPrevention.js"></script>
+
+    <script src="js/module/layerControl/futianLayer/base.js"></script>
+    <script src="js/module/layerControl/futianLayer/dataVisual.js"></script>
+    <script src="js/module/layerControl/futianLayer/externalService.js"></script>
+    <script src="js/module/layerControl/futianLayer/safety.js"></script>
+
+    <script src="js/module/layerControl/gtwpoiLayer/restaurant.js"></script>
+
+    <script src="js/module/layerControl/iotLayer/base.js"></script>
+
+    <script src="js/module/layerControl/otherLayer/fireWarn.js"></script>
+
+    <script src="js/module/layerControl/projectLayer/building.js"></script>
+
+    <script src="js/module/layerQuery/featureAttributeQuery.js"></script>
+    <script src="js/module/layerQuery/featureNearbyQuery.js"></script>
+
+    <!--arcgis-->
+    <script>
+        var dojoConfig = {
+            has: {
+                "esri-featurelayer-webgl": 1
+            }
+        };
+    </script>
+
+    <!-- 测试-->
+    <!--<link rel="stylesheet" href="http://192.168.16.240/arcgis_js_api/library/4.6/esri/css/main.css">-->
+     <!--<script src="http://192.168.16.240/arcgis_js_api/library/4.6/dojo/dojo.js"></script>-->
+    <!-- 测试  换-->
+    <!--<link rel="stylesheet" href="http://10.192.19.95:8080/arcgis_js_api/library/4.6/esri/css/main.css">-->
+  <!--<script src="http://10.192.19.95:8080/arcgis_js_api/library/4.6/dojo/dojo.js"></script>-->
+    <!--福田-->
+
+     <!--<link rel="stylesheet" href="http://10.190.55.58:8081/arcgis_js_api/library/4.6/esri/css/main.css">-->
+     <!--<script src="http://10.190.55.58:8081/arcgis_js_api/library/4.6/dojo/dojo.js"></script>-->
+  <!--<link rel="stylesheet" href="http://10.192.19.121:8081/arcgis_js_api/library/4.10/esri/css/main.css">-->
+  <!--<script src="http://10.192.19.121:8081/arcgis_js_api/library/4.10/dojo/dojo.js"></script>-->
+  <link rel="stylesheet" href="http://10.192.19.121:8081/arcgis_js_api/library/4.10/esri/css/main.css">
+  <script src="http://10.192.19.121:8081/arcgis_js_api/library/4.10/dojo/dojo.js"></script>
+  <!--<link rel="stylesheet" href="/web/arcgis_js_api/library/4.10/esri/css/main.css">-->
+  <!--<script src="/web/arcgis_js_api/library/4.10/dojo/dojo.js"></script>-->
+
+    <!--政务外网-->
+    <!-- <link rel="stylesheet" href="http://192.16.10.175:8010/arcgis_js_api/library/4.6/dijit/themes/claro/claro.css" />
+     <link rel="stylesheet" href="http://192.16.10.175:8010/arcgis_js_api/library/4.6/esri/css/main.css" />
+     <script src="http://192.16.10.175:8010/arcgis_js_api/library/4.6/dojo/dojo.js"></script>-->
+
+
+
+<body>
+<div id="viewDiv" style="background-image: url('./js/module/layerInfoWindow/futian/img/000_03.png');background: -webkit-gradient(linear,right top, left top,from(#001521),to(rgba(13, 32, 42, 0.8)));
+    background: linear-gradient(270deg,#001521,rgba(3, 32, 80, 0.8),#001521);"></div>
+<!--<div id="mapToggleDiv" style="display: none;">
+    <div id="normalToggleDiv" class="activeMapImage"><a
+            href="javascript:module.common.mapTool.mapOperate.baseMapToggleEvent(0)"><img
+            src="img/mapTool/map4.png"/></a></div>
+    <div id="imgToggleDiv"><a href="javascript:module.common.mapTool.mapOperate.baseMapToggleEvent(1)"><img
+            src="img/mapTool/map1.png"/></a></div>
+     <div id=""><a href="javascript:return;"><img src="img/mapTool/map3.png"/></a></div>
+
+</div>-->
+
+<div id="buttonDiv" style="display: none;">
+    <div>
+        <button id="openWarningPng" onclick="openWarningPng()">开</button>
+    </div>
+    <div>
+        <button id="closeWarningPng" onclick="closeWarningPng()">关</button>
+    </div>
+</div>
+
+<!-- <div id="mapControlCom
+onent">
+     <div class="container-fluid bg-primary" >
+         <h4>图层控制</h4>
+     </div>
+     <div style="height: 400px;;overflow: auto;">
+
+     <div id="treeview1" class=""></div>
+     </div>
+     &lt;!&ndash;<div class="bg-success"> <h4>全选</h4></div>&ndash;&gt;
+ </div>-->
+
+<!--<script src="js/main/test.js"></script>-->
+
+<script src="js/main/main.js"></script>
+</body>
+</html>

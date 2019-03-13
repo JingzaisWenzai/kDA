@@ -1,0 +1,73 @@
+<Map label="地图服务配置">
+  <!--福田-->
+  <!--安全隐患一张图-->
+  <!--安监图层-->
+  <group label="安监类图层" id="safetysupervision">
+    <group label="隐患分布" id="safetysupervision_yinhuanfenbu" pid="safetysupervision_yinhuanfenbu" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yinhuanfenbu.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/T_INSRECORD"/>
+    <group label="纳管企业" id="safetysupervision_naguanqiye" pid="safetysupervision_naguanqiye" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/naguanqiye.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QAJJ_PUCENTP_V"/>
+    <group label="安监事故" id="safetysupervision_anjianshigu" pid="safetysupervision_anjianshigu" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/anjianshigu.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QAJJ_REPACCIDENT_V"/>
+    <group label="三小场所类" id="safetysupervision_sanxiaochangsuolei">
+      <group label="小作坊" id="layer_safetysupervision_sanxiaochangsuolei_xiaozuofang" pid="safetysupervision_sanxiaochangsuolei" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/xiaozuofang.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/BLK_SANXIAO_PLACE@xiaozuofang"/>
+      <group label="小档口" id="layer_safetysupervision_sanxiaochangsuolei_xiaodangkou" pid="safetysupervision_sanxiaochangsuolei" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/xiaodangkou.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/BLK_SANXIAO_PLACE@xiaodangkou"/>
+      <group label="小娱乐场所" id="layer_safetysupervision_sanxiaochangsuolei_xiaoyulechangsuo" pid="safetysupervision_sanxiaochangsuolei" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/xiaoyulechangsuo.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/BLK_SANXIAO_PLACE@xiaoyulechangsuo"/>
+      <group label="巡查隐患" id="layer_safetysupervision_sanxiaochangsuolei_xunchayinhuan" pid="safetysupervision_sanxiaochangsuolei" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/xunchayinhuan.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/TB_XUNCHASHIJIAN"/>
+    </group>
+  </group>
+  <!--消防图层-->
+  <group label="消防类图层" id="xiaofanglei">
+    <group label="重大危险源" id="xiaofanglei_zhongdaweixianyuan" pid="xiaofanglei_zhongdaweixianyuan" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/zhongdaweixianyuan.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/BJ0601"/>
+    <group label="隐患三色" id="xiaofanglei_yinhuansanse" pid="xiaofanglei_yinhuansanse" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/common/yijiyinhuan.png,img/layerControl/common/erjiyinhuan.png,img/layerControl/common/sanjiyinhuan.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/T_XIAOFANG_BUWEI" />
+    <group label="消火栓" id="xiaofanglei_xiaohuoshuan" pid="xiaofanglei_xiaohuoshuan" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/xiaohuoshuan.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/TB_XIAOHUOSHUAN_002"/>
+    <group label="重点场所" id="xiaofanglei_zhongdianchangsuo" pid="xiaofanglei_zhongdianchangsuo" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/zhongdianchangsuo.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/ZHONGDIANCHANGSUO"/>
+    <group label="建筑风险" id="layer_basegeo_featureMapFutian_building" pid="basegeo_data" type="FeatureLayer"  show="false"  bm="" function="module.layerControl.basegeoLayer.featureMapFutian.layer_basegeo_featureMapFutian_building"  url="http://10.190.55.65:6080/arcgis/rest/services/FuTian/basemap_blue_2000/MapServer"/>
+    <group label="建筑风险等级" id="layer_basegeo_featureMapFutian_building_risklevel" pid="basegeo_data" type="FeatureLayer"  show="false"  bm="" function="--"  url="http://10.190.55.58:8081/T_BUILD_INFO_V/build/level/load_map"/>
+    <group label="三小场所" id="xiaofanglei_sanxiaochangsuo" pid="xiaofanglei_sanxiaochangsuo" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/sanxiaochangsuo.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="--"/>
+    <group label="预警预报" id="xiaofanglei_yujingyubao" pid="xiaofanglei_yujingyubao" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yujingyubao.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="/qajj_wl_caiji_info_new_v"/>
+  </group>
+  <!--三防图层-->
+  <group label="三防类图层" id="sanfanglei">
+    <group label="易涝点" name='waterlogging'  id="sanfanglei_yilaodian" pid="sanfanglei_yilaodian" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/common/yilaodian.png,img/layerControl/common/jilaodian.png" function="module.layerControl.futianLayer.base.layer_futian_base_iot" url="http://10.190.55.58:8081/IOT_DEVICE@neilaojiance/iot" />
+    <group label="道路病害" id="sanfanglei_daolubinghai" pid="sanfanglei_daolubinghai" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/daolubinghai.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/TB_ROAD_DISEASE"/>
+  </group>
+  <group label="物联网" id="wulianwang">
+    <group label="烟雾传感器" id="wulianwang_yanwuchuanganqi" pid="wulianwang_yanwuchuanganqi" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.futianLayer.base.layer_futian_base_iot" url="http://10.190.55.58:8081/IOT_DEVICE@yanwu/iot"/>
+    <group label="电气火灾监测设备" id="wulianwang_dianqihuozaijianceshebei" pid="wulianwang_dianqihuozaijianceshebei" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.futianLayer.base.layer_futian_base_iot" url="http://10.190.55.58:8081/IOT_DEVICE@dianqihuozaijiance/iot"/>
+    <group label="公安视频" id="layer_keyinformation_realtimevideo_gonganshipin" pid="keyinformation_realtimevideo" type="PointJsonLayer"  show="false" bm="" icon="img/layerControl/common/shexiangtou.png"  function="module.layerControl.futianLayer.base.layer_futian_base_iot_policevideo" url="http://10.190.55.58:8081/VIDEO_POLICE/video"/>
+  </group>
+  <group label="城区风险评估" id="urban_assi">
+    <group label="三小场所" id="urban_assi_sanxiaochangsuolei" pid="urban_assi" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/urbanRisk/three1.png,img/layerControl/urbanRisk/three2.png,img/layerControl/urbanRisk/three3.png,img/layerControl/urbanRisk/three4.png" function="module.layerControl.futianLayer.base.layer_futian_base_cityrrisk" url="http://10.190.55.58:8081/URBAN_RISK@sanxiaoplace" />
+    <group label="工业企业" id="urbanassisment_Enterprises" pid="urban_assi" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/urbanRisk/enterprise1.png,img/layerControl/urbanRisk/enterprise2.png,img/layerControl/urbanRisk/enterprise3.png,img/layerControl/urbanRisk/enterprise4.png" function="module.layerControl.futianLayer.base.layer_futian_base_cityrrisk" url="http://10.190.55.58:8081/URBAN_RISK@gongyeplace"/>
+    <group label="人员密集场所" id="urbanassisment_place" pid="urban_assi" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/urbanRisk/crowded1.png,img/layerControl/urbanRisk/crowded2.png,img/layerControl/urbanRisk/crowded3.png,img/layerControl/urbanRisk/crowded4.png"  function="module.layerControl.futianLayer.base.layer_futian_base_cityrrisk" url="http://10.190.55.58:8081/URBAN_RISK@renyuanplace"/>
+    <group label="公共基础设施" id="urbanassisment_basic" pid="urban_assi" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/urbanRisk/Infrastructure1.png,img/layerControl/urbanRisk/Infrastructure2.png,img/layerControl/urbanRisk/Infrastructure3.png,img/layerControl/urbanRisk/Infrastructure4.png" function="module.layerControl.futianLayer.base.layer_futian_base_cityrrisk" url="http://10.190.55.58:8081/URBAN_RISK@basicplace"/>
+    <group label="其他风险单元" id="urbanassisment_uint" pid="urban_assi" type="PointJsonLayer" show="false" bm="" iconArray="img/layerControl/urbanRisk/otherRisk1.png,img/layerControl/urbanRisk/otherRisk2.png,img/layerControl/urbanRisk/otherRisk3.png,img/layerControl/urbanRisk/otherRisk4.png" function="module.layerControl.futianLayer.base.layer_futian_base_cityrrisk" url="http://10.190.55.58:8081/URBAN_RISK@otherplace"/>
+  </group>
+
+
+  <!--生态环境一张图-->
+  <group label="环境监测点" id="env">
+    <group label="水质" id="water1" pid="qater_quality" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QHSJ_T_AIR_BASICINFO"/>
+    <group label="空气" id="weather1" pid="atmosphere" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QHSJ_SURF_WATER_BASICINFO"/>
+    <group label="污染源" id="pollution1" pid="pollution" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QHSJ_ENTERPRISE_BASICINFO"/>
+    <group label="工厂扬尘" id="dust1" pid="factory_dust" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="油烟" id="black1" pid="lampblack" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="噪音" id="noise1" pid="noise" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/QHSJ_ENTERPRISE_BASICINFO"/>
+  </group>
+  <group label="视频监测" id="video" name="video" >
+    <group label="河道" name="river"  id="river" pid="river_course" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="/today_alram/alarm/enterprise"/>
+    <group label="易涝点" name="waterlogging" id="waterlogging" pid="waterlogging_point" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="/today_alram/alarm/enterprise"/>
+    <group label="排污口" name="blowdown" id="blowdown" pid="blowdown_outlet" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="/today_alram/alarm/enterprise"/>
+    <group label="工地" name="construction" id="construction" pid="construction_site" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="/today_alram/alarm/enterprise"/>
+    <group label="工厂废水排放口" name="wastewater" id="factory_effluent_outlet" pid="factory_effluent_outlet" type="PointJsonLayer"  show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" minZoom="17" maxZoom="19" function="module.layerControl.fireLayer.video.layer_fire_video_qitazhuyaoluduan" url="/VIDEO_POLICE/video"/>
+  </group>
+  <group label="环境治理分析" id="analysis">
+    <!--<group label="水质" id="water" pid="qater_quality1" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="噪音" id="weather" pid="atmosphere1" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="排污口" id="noise" pid="noise1" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/yanwuchuanganqi.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="工厂扬尘" id="dust" pid="factory_dust1" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+    <group label="油烟" id="black" pid="lampblack1" type="PointJsonLayer" show="false" bm="" icon="img/layerControl/common/dianqihuozaijianceshebei.png" function="module.layerControl.common.loadUtil.loadPointJsonLayer" url="http://10.190.55.58:8081/today_alram/alarm/enterprise"/>
+  -->
+  </group>
+
+
+</Map>
+

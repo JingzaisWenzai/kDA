@@ -1,0 +1,81 @@
+{
+  "build":"国际创新中心1",
+  "basicDetail":
+  {
+    "险源名称": "深圳市泰能联合石油化工有限公司",
+    "机构名称": "福田街道",
+    "对象类型": "城市密集型场所",
+    "风险地址": "深圳市福田区",
+    "详细地址": "深圳市福田区金田路现代国际大厦2202B1",
+    "经纬度": "4403040030110900002000001",
+    "审核人0": "罗敏"
+
+  },
+  "subjectDetail":
+  {
+    "主体名称": "深圳市泰能联合石油化工有限公司",
+    "负责人": "金龙",
+    "联系电话": "13530078899",
+    "主体地址": "广东省",
+    "详细地址": "深圳市福田区金田路现代国际大厦2202B1",
+    "添加时间": "2018-09-13 17:03:31"
+
+  },
+  "agencyList":[
+    {"value":10, "name":"综合11"},
+    {"value":5,  "name":"住宅"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":15, "name":"商业"},
+    {"value":25, "name":"仓库"},
+    {"value":20, "name":"办公"}
+  ],
+  "riskAssessmentList":[
+    {"value":10, "name":"综合2"},
+    {"value":5,  "name":"住宅2"},
+    {"value":15, "name":"商业2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":25, "name":"仓库2"},
+    {"value":20, "name":"办公2"}
+  ],
+  "riskList":[
+    {"value":10,"name":"综合3"},
+    {"value":5, "name":"住宅2"},
+    {"value":5, "name":"住宅3"},
+    {"value":5, "name":"住宅3"},
+    {"value":15,"name":"商业3"},
+    {"value":25,"name":"仓库3"},
+    {"value":20,"name":"办公3"}
+  ],
+  "earlyWarningList":[
+    {"value":10,"name":"综合4"},
+    {"value":5, "name":"住宅4"},
+    {"value":15,"name":"商业4"},
+    {"value":25,"name":"仓库4"},
+    {"value":20,"name":"办公4"}
+  ],
+  "accidentList":[
+    {"value":10, "name":"综合5"},
+    {"value":5,  "name":"住宅5"},
+    {"value":5,  "name":"住宅5"},
+    {"value":5,  "name":"住宅5"},
+    {"value":5,  "name":"住宅5"},
+    {"value":5,  "name":"住宅5"},
+    {"value":15, "name":"商业5"},
+    {"value":25, "name":"仓库5"},
+    {"value":20, "name":"办公5"}
+  ]
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../../base/css/reset.css">
+  <!--<script src="js/common.js"></script>-->
+  <style>
+    /* --------自定义图层弹框--------*/
+    html{height:calc(100% - 2px);}
+    /*body{height:100%}*/
+    .base-body{ width:100%; /*height:100%;*/ margin:0 auto; background-color: rgba(2,22,35,0.8); box-shadow:0 0 5px #e6e6e6; border: 1px solid #196db4;}
+    .base-header{width: 95%;  height:30px;clear: both;line-height:30px;}
+    .base-header p,
+    .base-header .base-close{cursor: pointer;display: inline-block;vertical-align: middle;}
+    .base-header p{width:90%;height:100%;margin: 0; font-size: 16px;}
+    .base-header p span{display: inline-block;line-height:1;vertical-align: middle;color:#5fb6ff;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .base-header p span:first-child{ max-width: 95%;}
+    .base-header p span:last-child{ max-width:20%;padding: 4px 6px; font-size: 12px;color:#ffffff;margin-left:10px;border-radius: 5px; background-color: #df0000;}
+    .base-header .base-close{cursor: pointer;width:20px;height:20px;display: inline-block;vertical-align: middle;}
+    .base-header .base-close a,.base-header .base-close a img{width: 100%;height:100%;display: block;}
+    /*.base_content{ width: 95%; margin:15px auto 0 auto;height:auto;min-height: 195px;  max-height: 200px; line-height: 28px;  text-align: left; overflow-x: hidden;overflow-y:auto;*/
+      /*border-top: 1px solid #0e426e; border-bottom: 1px solid #0e426e; font-size: 14px;}*/
+    /*.base_content p{width: 90%;  margin:5px auto;}*/
+    /*.base_content p span{display: inline-block;vertical-align: middle; color: #7af3ff; }*/
+    /*.base_content p span:first-child{ color: #7af3ff;max-width:30%; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
+    /*.base_content p span:nth-child(2){margin:0 6px 0 3px;}*/
+    /*.base_content p span:last-child{ color: #5fb6ff;max-width:50%; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}*/
+    .base_content{margin: 5px;padding-top: 5px;text-align: left;border-top: 1px solid #196db4;height: 195px;}
+    .base_content ul li{list-style: none;display: block;padding: 2px 5px;margin: 0;}
+    .base_content ul li .name{/*width: 65px;*/line-height:16px;display: inline-block;text-align: right; color: #5fb6ff;font-size: 14px;font-weight: bold;position: absolute;padding-right: 5px;}
+    .base_content ul li .msg{padding-right: 15px;line-height:16px;display: inline-block;text-align: left; color: #a2d0ec;font-size: 14px;font-weight: bold;position: relative;left: 65px;max-height: 120px;overflow-y: auto;width: 200px;}
+    .content_img{
+      height: 0;
+    }
+    /*#subTitle{text-align:left;margin-left:10px;color: #5fb6ff;font-size: 14px;border-top: 1px solid #196db4;}*/
+    .base-footer{width: 95%;height:50px; margin:0 auto; position: relative;border-top: 1px solid #196db4;}
+    .base-footer .base-underline{ font-size:10px;margin:10px 30px 0 0;  width:auto;height:30px;line-height: 30px;display: block;float:left; padding:0 8px;background-color: #196db4;border-radius: 5px;color: #fff;}
+    .base-footer a span{display: block;width: 60px;/*width: 100%;*/background-color: transparent;}
+    .base-footer a.base-btn{font-size: 12px;display:block;padding:0 8px;height:30px;line-height: 30px; position: absolute; right: 5px;; top:50%;margin-left:-60px;margin-top:-15px;background-color: #196db4;border-radius: 5px;color: #fff;}
+  </style>
+
+  <script src="../../../../../../js/OneMap/detailAlert.js"></script>
+  <script src="../js/jquery-1.11.1.min.js" type="text/javascript" language="javascript"></script>
+  <script src="../js/echarts.min.js" type="text/javascript" language="javascript"></script>
+  <script>
+    /** ---------------------弹框初始化---------------------*/
+    var parentWindow = window.parent;
+    var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href);//获取url参数
+    var imgData = ''
+    //console.log(params);
+   /* nodeId=xiaofanglei_zhongdaweixianyuan&featureId=undefined&longitude=114.03034310800001&latitude=22.52501630200004*/
+
+
+    parentWindow.module.layerControl.common.customPopup.initPopupStyle();//弹框样式初始化
+
+    /** ---------------------弹框按钮---------------------*/
+    //按钮-关闭
+    function closePopup() {
+      parentWindow.mapView.popup.close();
+    }
+
+    //按钮-查看详情
+    function openDetailMsg() {
+      //console.log(parentWindow.parent);
+      var name = document.getElementById('popup_tilte').innerHTML;
+      detailAlert.loadSFDetailMessage(params.nodeId, params.featureId,name);
+    }
+
+    //按钮-周边查询
+    function queryNearby() {
+
+        //控制周边搜索弹框以及将数据传出
+      detailAlert.sendCircleSearchInfo(params.nodeId,params.featureId,params.latitude,params.longitude);
+    //  parentWindow.module.layerControl.common.loadUtil.drawCirleQuery(params.longitude, params.latitude);
+     // parentWindow.module.layerQuery.featureNearbyQuery.loadPointJsonLayerByCircleSearch("chengshibujian_wc","BJ0301","114.09462820727758","22.54998918105337",2000);
+    }
+
+    /** ---------------------弹框工具---------------------*/
+    //工具--缩放至
+    function zooTo() {
+      parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude);
+    }
+
+    //工具--清除周边
+    function clearNearby() {
+      parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer();
+      detailAlert.sendClearNearByNodes();
+    }
+
+    /** ---------------------弹框数据填充---------------------*/
+    window.onload =function () {
+
+      parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function (data) {
+        //html填充 标题
+        var node = parentWindow.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId);
+
+        //console.log(params);
+
+        if (data) {
+          params.name = data.name ? data.name :node.label;
+          //遍历字段
+          var tempArray = []
+          if(data.value !== undefined){
+            var html = ''
+            for(var i = 0,j = data.value.length;i<j;i+=1){
+              html += '<li><span class="name">'+data.value[i][0]+'：</span><span class="msg">'+data.value[i][1]+'</span></li>'
+            }
+            $('.base_content ul').html(html)
+            for(var i = 0,j = $('.base_content .name').length;i<j;i+=1){
+              tempArray.push((Number($('.base_content .name').eq(i).css('width').split('px')[0])))
+            }
+          }else {
+            // document.getElementById('subTitle').innerText = data.data.name
+            initPie(data.data)
+          }
+
+          if(data.img !== undefined){
+            $('.content_img img').eq(0).attr('src',data.img)
+            imgData = data.img
+            $('.content_img').css('height','auto')
+          }
+
+          //是否有详细按钮
+          if (!data.hasDetailInfo) {
+            document.getElementById('popup_detail').style.cssText = "display:none";
+          }
+          if(!data.info_alert || data.info_alert ==='' ||  data.info_alert ==='0'){
+            document.getElementById('popup_alert').style.cssText = "display:none";
+          }
+          if(!data.title || data.title === ''){
+            document.getElementById('popup_tilte').innerHTML = node.label;
+            document.getElementById('popup_tilte').title = node.label;
+          }else{
+            document.getElementById('popup_tilte').innerHTML = data.title;
+            document.getElementById('popup_tilte').title =data.title;
+          }
+
+          // document.getElementById('popup_content').innerHTML = htmlItem;
+
+          // $('.base_content .name').css('width',quickSort(tempArray).reverse()[0]+1+'px')
+          // $('.base_content .msg').css('left',(Number($('.base_content .name').css('width').split('px')[0])+5)+'px')
+          // var widthTemp = 15+(Number($('.base_content .name').css('width').split('px')[0]))+200
+          // $(parentWindow.document.getElementsByClassName('popView')).css('width',widthTemp+'px')
+          // setTimeout(function() {
+          //   $(parentWindow.document.getElementsByClassName('popView')).css('height',$('.base-body').css('height'))
+          // },500)
+
+        }else{
+          document.getElementById('popup_tilte').innerHTML = node.label;
+          document.getElementById('popup_alert').style.cssText = "display:none";
+          document.getElementById('popup_content').innerHTML = '<p><span style="font-size: 16px; color:#ffffff;">暂无数据</span></p>';
+          document.getElementById('popup_detail').style.cssText = "display:none";
+          $(parentWindow.document.getElementsByClassName('popView')).css('height',$('.base-body').css('height'))
+        }
+      });
+    };
+
+    function quickSort(ary){
+      if(ary.length<=1){
+        return ary;
+      }
+      var num=Math.floor(ary.length/2);
+      var numValue=ary.splice(num,1)[0];
+      var left=[];
+      var right=[];
+      for(var i=0; i<ary.length; i++){
+        var cur=ary[i];
+        if(cur<numValue){
+          left.push(cur);
+        }else{
+          right.push(cur);
+        }
+      }
+      return quickSort(left).concat([numValue],quickSort(right));
+    }
+
+    function openBigImg() {
+      parentWindow.parent.showImgViewer([imgData])
+    }
+
+    function initPie(data) {
+      var myChart = echarts.init(document.getElementById('popup_content'))
+      var option = {
+        title:{
+          text:data.name,
+          textStyle:{
+            color:'#5fb6ff',
+            fontSize:14
+          }
+        },
+        "tooltip":{
+          "trigger":"item",
+          "formatter":"{a} <br/>{b} : {c} ({d}%)",
+          "confine":true
+        },
+        "legend":{
+          show:false,
+          "top":"bottom",
+          "itemGap":2
+        },
+        "series":[
+          {
+            "name":"风险隐患评分",
+            "type":"pie",
+            "center":["50%","60%"],
+            "radius":["15%","50%"],
+            "data":data.data,
+            "roseType":false,
+            label: {
+              formatter:function(a){
+                let temp = a.name.split('')
+                for(let i = 0,j = a.name.split('').length;i<j;i+=1){
+                  if(i%5===0&&i!==0){
+                    temp.splice(i,0,'\n')
+                  }
+                }
+                return a.name.length>7?temp.join(''):a.name
+              }
+            },
+            "labelLine":{
+              "normal":{
+                "lineStyle":{},
+                "smooth":0.2,
+                "length":5,
+                "length2":10
+              }
+              },
+            "animationType":"scale",
+            "animationEasing":"elasticOut"
+          }
+        ]
+      }
+      myChart.setOption(option)
+    }
+  </script>
+</head>
+<body>
+<div class="base-body">
+  <div class="base-header" id="popup_body">
+    <p><span id="popup_tilte">标题</span><span id="popup_alert">报警</span></p>
+    <div class="base-close" aria-label="关闭" title="关闭">
+      <a href="javascript:void(0);" onclick="closePopup()">
+        <img src="../../futian/img/close.png"/>
+      </a>
+    </div>
+  </div>
+  <div id="popup_content" class="base_content">
+    <ul></ul>
+  </div>
+  <div class="content_img">
+    <img style="cursor: pointer; max-width: 250px;max-height: 250px;" onclick="openBigImg()"/>
+  </div>
+
+  <div class="base-footer">
+    <!--<a class="base-underline" onclick="zooTo()"><span>缩放至</span></a>-->
+    <!-- <a class="base-underline" onclick="clearNearby()"><span>清除</span></a>-->
+    <a class="base-underline" onclick="queryNearby()"><span>附近资源</span></a>
+    <a class="base-btn" onclick="openDetailMsg()" id="popup_detail"><span>查看详情</span></a>
+  </div>
+</div>
+</body>
+</html>

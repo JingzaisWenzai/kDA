@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../base/css/reset.css">
+  <style>
+    /* --------自定义图层弹框--------*/
+    html {
+      height: calc(100% - 2px);
+    }
+
+    body {
+      height: 100%
+    }
+
+    .base-body {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      border: 1px solid #196db4;
+      background-color: #032335;
+      box-shadow: 0 0 5px #e6e6e6;
+    }
+
+    .base-header {
+      width: 95%;
+      height: 30px;
+      clear: both;
+      line-height: 30px;
+    }
+
+    .base-header p,
+    .base-header .base-close {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .base-header p {
+      width: 90%;
+      height: 100%;
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .base-header p span {
+      display: inline-block;
+      color: #7af3ff;
+      line-height: 1;
+      vertical-align: middle;
+      color: #7af3ff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /*.base-header p span:first-child{ max-width: 50%;}*/
+    .base-header p span:last-child {
+      max-width: 20%;
+      padding: 4px 6px;
+      font-size: 12px;
+      color: #ffffff;
+      margin-left: 10px;
+      border-radius: 5px;
+      background-color: #df0000;
+    }
+
+    .base-header .base-close {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .base-header .base-close a, .base-header .base-close a img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .base_content {
+      width: 95%;
+      margin: 15px auto 0 auto;
+      height: auto;
+      min-height: 110px;
+      max-height: 110px;
+      line-height: 28px;
+      text-align: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+      border-top: 1px solid #0e426e;
+      border-bottom: 1px solid #0e426e;
+      font-size: 14px;
+    }
+
+    .base_content p {
+      width: 90%;
+      margin: 3px auto;
+    }
+
+    .base_content p span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .base_content p span:first-child {
+      color: #7af3ff;
+      max-width: 30%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .base_content p span:nth-child(2) {
+      margin: 0 10px 0 6px;
+    }
+
+    .base_content p span:last-child {
+      color: #5fb6ff;
+      max-width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .base-body iframe {
+      width: 100%;
+      height: 382px;
+    }
+
+    .base-footer {
+      width: 95%;
+      height: 50px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .base-footer .base-underline {
+      font-size: 10px;
+      margin: 10px 30px 0 0;
+      width: auto;
+      height: 30px;
+      line-height: 30px;
+      display: block;
+      float: left;
+      padding: 0 8px;
+      background-color: #196db4;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .base-footer a span {
+      display: block;
+      width: 60px; /*width: 100%;*/
+      background-color: transparent;
+    }
+
+    .base-footer a.base-btn {
+      font-size: 12px;
+      display: block;
+      padding: 0 8px;
+      height: 30px;
+      line-height: 30px;
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      margin-left: -60px;
+      margin-top: -15px;
+      background-color: #196db4;
+      border-radius: 5px;
+      color: #fff;
+    }
+  </style>
+
+  <link href="../futian/video/video.css" rel="stylesheet">
+  <script src="../../../../../js/baseUrl_1.js"></script>
+  <script src="../../../../../js/OneMap/detailAlert.js"></script>
+  <script src="../futian/js/video/LoadingData.js"></script>
+  <script src="../futian/js/jquery-1.11.1.min.js"></script>
+  <script src="../futian/video/video.js"></script>
+  <script src="../futian/video/videojs-contrib-hls.js"></script>
+  <script>
+    /** ---------------------弹框初始化---------------------*/
+    var parentWindow = window.parent
+    var params = parentWindow.module.layerControl.common.customPopup.getUrlParam(window.location.href)//获取url参数
+
+    parentWindow.module.layerControl.common.customPopup.initPopupStyle()//弹框样式初始化
+
+    //视频四宫格、九宫格、十八宫格
+    var video = '<iframe style="position: absolute;width: 826px;height: 677px;z-index: 9999;right: 80px;top: 80px;display: none;border: none;" id="videoFlash" class="" src="../../../web/gis/js/module/layerInfoWindow/futian/video/videoFlash.html" ></iframe>'
+
+    /** ---------------------弹框按钮---------------------*/
+    //按钮-关闭
+    function closePopup() {
+      parentWindow.mapView.popup.close()
+    }
+
+    //按钮-查看详情
+    function openDetailMsg() {
+      detailAlert.loadSFDetailMessage(params.nodeId, params.featureId)
+    }
+
+    //按钮-周边查询
+    function queryNearby() {
+      //控制周边搜索弹框以及将数据传出
+      detailAlert.sendCircleSearchInfo(params.nodeId, params.featureId, params.latitude, params.longitude)
+    }
+
+    /** ---------------------弹框工具---------------------*/
+    //工具--缩放至
+    function zooTo() {
+      parentWindow.module.layerControl.common.customPopup.zooTo(parentWindow.mapView, params.longitude, params.latitude)
+    }
+
+    //工具--清除周边
+    function clearNearby() {
+      parentWindow.module.layerQuery.featureNearbyQuery.closeResultGrapicLayer()
+      detailAlert.sendClearNearByNodes()
+    }
+
+    var session = ''
+    /** ---------------------弹框数据填充---------------------*/
+    window.onload = function() {
+
+      //检查及允许flash
+      var fls = flashChecker();
+      if(fls.f){
+        document.getElementById('my-video').style.display = ''
+        document.getElementById('openFlash').style.display = 'none'
+      }else {
+        document.getElementById('my-video').style.display = 'none'
+        document.getElementById('openFlash').style.display = ''
+      }
+
+      parentWindow.module.layerControl.common.customPopup.loadJsonData(params, function(data) {
+        console.log(params)
+        //html填充
+        var node = parentWindow.module.common.layerControl.mapLayerXml.getLayerNodeById(params.nodeId)
+        if (data) {
+          //遍历字段
+          var htmlItem = ''
+          for (var i = 0; i < data.value.length; i++) {
+            var item = data.value[i]
+            htmlItem += '<p><span>' + item[0] + '</span><span>：</span><span>' + item[1] + '</span></p>'
+          }
+
+          //是否有详细按钮
+          if (!data.hasDetailInfo) {
+            document.getElementById('popup_detail').style.cssText = 'display:none'
+          }
+          if (!data.info_alert || data.info_alert === '' || data.info_alert === '0') {
+            document.getElementById('popup_alert').style.cssText = 'display:none'
+          }
+          if (!data.title || data.title === '') {
+            document.getElementById('popup_tilte').innerHTML = node.label
+            document.getElementById('popup_tilte').title = node.title
+          } else {
+            document.getElementById('popup_tilte').innerHTML = data.title
+            document.getElementById('popup_tilte').title = data.title
+          }
+
+          /*获取视频ID*/
+          if (data.video) {
+
+            if(document.getElementById('my-video').style.display !== 'none'){
+              if(window.parent.parent.document.getElementById('videoFlash') === null){
+                $( window.parent.parent.document.body).append(video)
+              }
+            }
+
+            videojs.options.flash.swf = '../futian/video/video-js.swf'
+            var timer = null
+            var isClicked = false
+            var param = {
+              'loginName': 'zdk',
+              'Password': '21218cca77804d2ba1922c33e0151105',
+              'clientsrc': 'pc',
+              'sureLogin': '1',
+              'IsRenew': '0',
+              'clientmac': ' 00-FF-62-87-82-1C',
+              'clientip': '2.0.1.7',
+              'systemversion': 'Microsoft Windows NT 6.2.9200.0',
+              'clientversion': 'V10.12.5.170506'
+            }
+            //获取用户id
+            $.ajax({//http://10.192.76.20:8082
+              url: 'http://10.192.76.20:8082/xEyeWeb/user/userLogin.do',
+              type: 'post',
+              dataType: 'json',
+              data: param,
+              success: function(data2) {
+                console.log(data2)
+                if (data2.msg === 'success') {
+
+                  /**
+                   * 显示九宫格，并传视频id，userid
+                   */
+                  $(window.parent.parent.document.getElementById('videoFlash')).show()
+                  window.parent.parent.document.getElementById('videoFlash').contentWindow.getVideosId(data.video[0].videoId,data2.userInfo.id)
+
+                  //开始播放
+                  $.ajax({//http://10.192.76.95:8016
+                    url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=start&platform=pc&userid=' + data2.userInfo.id + '&cameraid=' + data.video[0].videoId + '&type=realplay',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function(data3) {
+                      console.log(data3)
+                      if (data3.descripe === 'success') {
+                        session = data3.sessionid
+                        videojs('my-video', {}).ready(function () {
+                          var player = this;
+                          player.src(data3.rtmpUrl);
+                          player.play();
+
+                          // 启动心跳
+                          timer = setInterval(function () {
+                            //发送心跳
+                            $.ajax({//http://10.192.76.95:8016
+                              url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=heartbeat&sessionid='+data3.sessionid+'&type=realplay',
+                              type: 'post',
+                              dataType: 'json',
+                              success: function(data4) {
+                                console.log(data4)
+                                if (data4.descripe === 'success') {
+
+                                } else {
+                                  alert('发送心跳失败:'+data4.descripe)
+                                }
+                              }
+                            })
+                          }, 10000);
+                        });
+                      } else {
+                        alert('播放失败:'+data3.descripe)
+                      }
+                    }
+                  })
+                } else {
+                  alert('获取用户id失败:'+data2.msg)
+                }
+              }
+            })
+          }
+
+          document.getElementById('popup_content').innerHTML = htmlItem
+        } else {
+          document.getElementById('popup_tilte').innerHTML = node.label
+          document.getElementById('popup_alert').style.cssText = 'display:none'
+          document.getElementById('popup_content').innerHTML = '<p><span style="font-size: 16px; color:#ffffff;">暂无数据</span></p>'
+          /* document.getElementById('popup_detail').style.cssText = "display:none";*/
+        }
+      })
+    }
+
+    function flashChecker() {
+      var hasFlash = 0;　　　　 //是否安装了flash
+      var flashVersion = 0;　　 //flash版本
+      if(document.all) {
+        var swf = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+        if(swf) {
+          hasFlash = 1;
+          var VSwf = swf.GetVariable("$version");
+          flashVersion = parseInt(VSwf.split(" ")[1].split(",")[0]);
+        }
+      } else {
+        if(navigator.plugins && navigator.plugins.length > 0) {
+          var swf = navigator.plugins["Shockwave Flash"];
+          if(swf) {
+            hasFlash = 1;
+            var words = swf.description.split(" ");
+            for(var i = 0; i < words.length; ++i) {
+              if(isNaN(parseInt(words[i]))){
+                continue;
+              }
+              flashVersion = parseInt(words[i]);
+            }
+          }
+        }
+      }
+      return {
+        f: hasFlash,
+        v: flashVersion
+      };
+    }
+
+    function Logout(){
+      $.ajax({//http://10.192.76.95:8016
+        url: 'http://10.192.76.95:8016/xhwebvideo.xhrtmp?cmd=stop&sessionid='+session,
+        type: 'post',
+        dataType: 'json',
+        success: function(data4) {
+          console.log(data4)
+          if (data4.descripe === 'success') {
+            console.log('暂停成功！')
+          } else {
+            console.log('暂停失败：'+data4.descripe)
+          }
+        }
+      })
+    }
+  </script>
+</head>
+<body onunload="Logout()" onbeforeunload="Logout()">
+<div class="base-body">
+  <div class="base-header">
+    <p><span id="popup_tilte">标题</span><span id="popup_alert">报警</span></p>
+    <div class="base-close" aria-label="关闭" title="关闭">
+      <a href="javascript:void(0);" onclick="closePopup()">
+        <img src="../futian/img/close.png"/>
+      </a>
+    </div>
+  </div>
+
+  <div id="popup_content" class="base_content"></div>
+  <p id="openFlash" style="text-align: center;">
+    <embed bid="100365332" id="player1522219373148" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="520" height="390" src="//tv.sohu.com/upload/swf/20180316/Main.swf" bgcolor="#000000" allowfullscreen="true" wmode="transparent" flashvars="&amp;oad=&amp;ead=&amp;pad=&amp;fbarad=&amp;flogoad=&amp;flogodelay=&amp;tlogoad=&amp;tlogodelay=&amp;fbottomad=&amp;fbottomdelay=&amp;ftitlead=&amp;ftitledelay=&amp;domain=inner&amp;sogouBtn=0&amp;skin=0&amp;api_key=&amp;enforceMP4=&amp;xuid=&amp;recommend=&amp;showRecommend=&amp;playercover=&amp;id=100365332&amp;autoplay=false&amp;pageurl=https://mp.sohu.com/editor/video.html&amp;showCtrlBar=0&amp;jump=0&amp;sid=1710161843369377&amp;enforceHTML5=false&amp;uuid=e07f2c80-76c2-b7d2-38ac-6b58525d4814&amp;topBarFull=1">
+  </p>
+  <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" controls=""
+         x-webkit-airplay="allow" style="width: 560px;height: 400px;display: none;" width="640px" height="480px" poster=""
+         webkit-playsinline="" playsinline="" x5-video-player-type="h5" preload="auto">
+    <source src="" type="rtmp/flv">
+    <p class="vjs-no-js"> 播放视频需要启用 JavaScript，推荐使用支持 HTML5 的浏览器访问。
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  <div class="base-footer">
+    <!--<a class="base-underline" onclick="zooTo()"><span>缩放至</span></a>-->
+    <!--<a class="base-underline"  onclick="clearNearby()"><span>清除</span></a>-->
+    <a class="base-underline" onclick="queryNearby()"><span>附近资源</span></a>
+    <a class="base-btn" onclick="openDetailMsg()" id="popup_detail"><span>查看详情</span></a>
+  </div>
+  <!--<a href="https://get.adobe.com/cn/flashplayer/" rel="nofollow noreferrer" class="flashLoadMsg" target="_blank"><span id="allowFlash"></span></a>-->
+  <a href="https://get.adobe.com/cn/flashplayer/" class="flashLoadMsg" target="_blank"><span id="allowFlash"></span></a>
+</div>
+</body>
+</html>
